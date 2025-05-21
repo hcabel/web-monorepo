@@ -88,14 +88,14 @@ export default async function LandingPage(props: ILocaleLayoutProps) {
 						<I18nDictText i18nKey="MyJob" />
 					</h2>
 				</div>
-				<Link
+				{/* <Link
 					className={Style.Freelance}
 					href={`/${props.params.locale}/freelance`}
 				>
 					<h3 className={`h5 ${Style.FreelanceText}`}>
 						{"Freelance"}
 					</h3>
-				</Link>
+				</Link> */}
 				<Link
 					href={`/${props.params.locale}/landing/projects/unreal-vscode-helper#bottom`}
 					className={Style.MyProject}
