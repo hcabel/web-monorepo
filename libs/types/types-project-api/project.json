@@ -4,7 +4,7 @@
 	"projectType": "library",
 	"targets": {
 		"lint": {
-			"executor": "@nrwl/linter:eslint",
+			"executor": "@nx/eslint:lint",
 			"options": {
 				"eslintConfig": ".eslintrc.json",
 				"lintFilePatterns": ["libs/types/types-project-api/src/**/*"]

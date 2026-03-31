@@ -1,17 +1,9 @@
 {
 	"$schema": "./node_modules/nx/schemas/nx-schema.json",
-	"npmScope": "hcabel",
 	"affected": {
 		"defaultBase": "origin/DEV"
 	},
-	"tasksRunnerOptions": {
-		"default": {
-			"runner": "nx/tasks-runners/default",
-			"options": {
-				"cacheableOperations": ["build", "lint", "test", "e2e"]
-			}
-		}
-	},
+	"cacheableOperations": ["build", "lint", "test", "e2e"],
 	"targetDefaults": {
 		"build": {
 			"dependsOn": ["^build"],
@@ -43,7 +35,7 @@
 		"sharedGlobals": ["{workspaceRoot}/babel.config.json"]
 	},
 	"generators": {
-		"@nrwl/react": {
+		"@nx/react": {
 			"application": {
 				"style": "css",
 				"linter": "eslint",
@@ -57,7 +49,7 @@
 				"linter": "eslint"
 			}
 		},
-		"@nrwl/next": {
+		"@nx/next": {
 			"application": {
 				"style": "scss",
 				"linter": "eslint"

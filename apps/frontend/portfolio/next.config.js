@@ -1,11 +1,8 @@
 // @ts-check
 
-const { withNx } = require("@nrwl/next/plugins/with-nx");
+const { withNx } = require("@nx/next/plugins/with-nx");
 
 const nextConfig = {
-	experimental: {
-		appDir: true,
-	},
 	compress: true,
 	reactStrictMode: false,
 	distDir: "../../../dist/apps/frontend/portfolio/.next",

@@ -5,7 +5,7 @@
 	"projectType": "application",
 	"targets": {
 		"build": {
-			"executor": "@nrwl/webpack:webpack",
+			"executor": "@nx/webpack:webpack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"target": "node",
@@ -23,7 +23,7 @@
 			}
 		},
 		"serve": {
-			"executor": "@nrwl/js:node",
+			"executor": "@nx/js:node",
 			"options": {
 				"buildTarget": "backend-project-api:build"
 			},
@@ -36,7 +36,7 @@
 			}
 		},
 		"lint": {
-			"executor": "@nrwl/linter:eslint",
+			"executor": "@nx/eslint:lint",
 			"options": {
 				"lintFilePatterns": ["apps/backend/project-api/src/**/*"]
 			},
@@ -48,7 +48,7 @@
 			}
 		},
 		"test": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": ["coverage/apps/backend/project-api"],
 			"options": {
 				"jestConfig": "apps/backend/project-api/jest.config.ts",

@@ -4,7 +4,7 @@
 	"projectType": "application",
 	"targets": {
 		"build": {
-			"executor": "@nrwl/next:build",
+			"executor": "@nx/next:build",
 			"outputs": ["{options.outputPath}"],
 			"nextConfig": "apps/frontend/portfolio/next.config.js",
 			"options": {
@@ -13,7 +13,7 @@
 			}
 		},
 		"serve-DEV": {
-			"executor": "@nrwl/next:server",
+			"executor": "@nx/next:server",
 			"options": {
 				"buildTarget": "frontend-portfolio:build",
 				"dev": true
@@ -25,7 +25,7 @@
 			}
 		},
 		"serve-PROD": {
-			"executor": "@nrwl/next:server",
+			"executor": "@nx/next:server",
 			"options": {
 				"buildTarget": "frontend-portfolio:build",
 				"dev": false
@@ -44,7 +44,7 @@
 			}
 		},
 		"lint": {
-			"executor": "@nrwl/linter:eslint",
+			"executor": "@nx/eslint:lint",
 			"options": {
 				"lintFilePatterns": [
 					"apps/frontend/portfolio/pages/**/*",
