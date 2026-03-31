@@ -8,17 +8,13 @@
 			"executor": "@nx/webpack:webpack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"target": "node",
-				"compiler": "tsc",
 				"outputPath": "dist/apps/backend/project-api",
-				"main": "apps/backend/project-api/src/server.ts",
-				"tsConfig": "apps/backend/project-api/tsconfig.json"
+				"webpackConfig": "apps/backend/project-api/webpack.config.js"
 			},
 			"configurations": {
 				"production": {
 					"optimization": true,
-					"extractLicenses": true,
-					"inspect": false
+					"extractLicenses": true
 				}
 			}
 		},

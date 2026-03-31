@@ -8,17 +8,13 @@
 			"executor": "@nx/webpack:webpack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"target": "node",
-				"compiler": "tsc",
 				"outputPath": "dist/apps/backend/telemetry-api",
-				"main": "apps/backend/telemetry-api/src/server.ts",
-				"tsConfig": "apps/backend/telemetry-api/tsconfig.app.json"
+				"webpackConfig": "apps/backend/telemetry-api/webpack.config.js"
 			},
 			"configurations": {
 				"production": {
 					"optimization": true,
-					"extractLicenses": true,
-					"inspect": false
+					"extractLicenses": true
 				}
 			}
 		},
