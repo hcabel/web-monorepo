@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ILocaleLayoutProps } from "../layout";
+import { ILocalePageProps } from "../layout";
 
 import Style from "./page.module.scss";
 import ArrowIcon from "Images/arrow.svg";
@@ -70,7 +70,7 @@ async function getGithubContributions(
 	return await response.json();
 }
 
-export default async function LandingPage(props: ILocaleLayoutProps) {
+export default async function LandingPage(props: ILocalePageProps) {
 	const githubActivities = await getGithubContributions("hcabel");
 
 	if (!githubActivities) {

@@ -16,6 +16,12 @@ export interface ILocaleLayoutProps {
 	params: LocaleLayoutParams;
 }
 
+// Page props for Next.js 14 App Router pages (no children prop)
+export interface ILocalePageProps {
+	params: LocaleLayoutParams;
+	searchParams?: { [key: string]: string | string[] | undefined };
+}
+
 export default function LocaleLayout(props: ILocaleLayoutProps) {
 	return (
 		<html lang={props.params.locale}>
