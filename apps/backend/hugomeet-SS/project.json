@@ -1,5 +1,6 @@
 {
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "backend-hugomeet-SS",
 	"sourceRoot": "apps/backend/hugomeet-SS",
 	"projectType": "application",
 	"targets": {

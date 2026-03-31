@@ -1,5 +1,6 @@
 {
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "types-telemetry-api",
 	"sourceRoot": "libs/types/types-telemetry-api/src",
 	"projectType": "library",
 	"targets": {

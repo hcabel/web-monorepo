@@ -1,5 +1,6 @@
 {
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "types-project-api",
 	"sourceRoot": "libs/types/types-project-api/src",
 	"projectType": "library",
 	"targets": {

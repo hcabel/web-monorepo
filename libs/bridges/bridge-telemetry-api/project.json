@@ -1,5 +1,6 @@
 {
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "bridge-telemetry-api",
 	"sourceRoot": "libs/bridges/bridge-telemetry-api/src",
 	"projectType": "library",
 	"targets": {

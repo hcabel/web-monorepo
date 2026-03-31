@@ -1,6 +1,6 @@
 {
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"name": "telemetry-api",
+	"name": "backend-telemetry-api",
 	"sourceRoot": "apps/backend/telemetry-api/src",
 	"projectType": "application",
 	"targets": {
