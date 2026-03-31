@@ -17,9 +17,9 @@ import LightPurplePeaksStacked from "Images/LightPurplePeaksStacked.svg";
 import Malt from "Images/Malt.svg";
 import Linkedin from "Images/Linkedin.svg";
 import { GetI18nDictValue } from "Utils/i18nDict";
-import { ILocaleLayoutProps } from "../layout";
+import { ILocalePageProps } from "../layout";
 
-export default async function freelance(props: ILocaleLayoutProps) {
+export default async function freelance(props: ILocalePageProps) {
 	return (
 		<main className={`Page ${Style.FreelancePage}`}>
 			<Link

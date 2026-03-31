@@ -1,29 +1,25 @@
 {
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"name": "telemetry-api",
+	"name": "backend-telemetry-api",
 	"sourceRoot": "apps/backend/telemetry-api/src",
 	"projectType": "application",
 	"targets": {
 		"build": {
-			"executor": "@nrwl/webpack:webpack",
+			"executor": "@nx/webpack:webpack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"target": "node",
-				"compiler": "tsc",
 				"outputPath": "dist/apps/backend/telemetry-api",
-				"main": "apps/backend/telemetry-api/src/server.ts",
-				"tsConfig": "apps/backend/telemetry-api/tsconfig.app.json"
+				"webpackConfig": "apps/backend/telemetry-api/webpack.config.js"
 			},
 			"configurations": {
 				"production": {
 					"optimization": true,
-					"extractLicenses": true,
-					"inspect": false
+					"extractLicenses": true
 				}
 			}
 		},
 		"serve": {
-			"executor": "@nrwl/js:node",
+			"executor": "@nx/js:node",
 			"options": {
 				"buildTarget": "backend-telemetry-api:build"
 			},
@@ -36,7 +32,7 @@
 			}
 		},
 		"lint": {
-			"executor": "@nrwl/linter:eslint",
+			"executor": "@nx/eslint:lint",
 			"options": {
 				"lintFilePatterns": ["apps/backend/telemetry-api/**/*.ts"]
 			},
@@ -48,7 +44,7 @@
 			}
 		},
 		"test": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": ["coverage/apps/backend/telemetry-api"],
 			"options": {
 				"jestConfig": "apps/backend/telemetry-api/jest.config.ts",

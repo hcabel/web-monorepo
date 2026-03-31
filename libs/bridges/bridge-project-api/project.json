@@ -1,10 +1,11 @@
 {
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "bridge-project-api",
 	"sourceRoot": "libs/bridges/bridge-project-api/src",
 	"projectType": "library",
 	"targets": {
 		"lint": {
-			"executor": "@nrwl/linter:eslint",
+			"executor": "@nx/eslint:lint",
 			"options": {
 				"eslintConfig": ".eslintrc.json",
 				"lintFilePatterns": ["libs/bridges/bridge-project-api/src/**/*"]

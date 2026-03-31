@@ -19,11 +19,11 @@
     }
   },
   "plugins": [
-    "@nrwl/nx",
+    "@nx",
     "@typescript-eslint/eslint-plugin"
   ],
   "rules": {
-    "@nrwl/nx/enforce-module-boundaries": [
+    "@nx/enforce-module-boundaries": [
       "error",
       {
         "enforceBuildableLibDependency": true,

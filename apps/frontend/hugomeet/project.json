@@ -1,10 +1,11 @@
 {
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "frontend-hugomeet",
 	"sourceRoot": "apps/frontend/hugomeet/src",
 	"projectType": "application",
 	"targets": {
 		"build": {
-			"executor": "@nrwl/web:webpack",
+			"executor": "@nx/web:webpack",
 			"outputs": ["{options.outputPath}"],
 			"defaultConfiguration": "production",
 			"options": {
@@ -19,7 +20,7 @@
 					"apps/frontend/hugomeet/src/public"
 				],
 				"scripts": [],
-				"webpackConfig": "@nrwl/react/plugins/webpack"
+				"webpackConfig": "@nx/react/plugins/webpack"
 			},
 			"configurations": {
 				"development": {
@@ -39,7 +40,7 @@
 			}
 		},
 		"serve": {
-			"executor": "@nrwl/web:dev-server",
+			"executor": "@nx/web:dev-server",
 			"defaultConfiguration": "development",
 			"options": {
 				"buildTarget": "frontend-hugomeet:build",
@@ -69,7 +70,7 @@
 			}
 		},
 		"lint": {
-			"executor": "@nrwl/linter:eslint",
+			"executor": "@nx/eslint:lint",
 			"options": {
 				"lintFilePatterns": ["apps/backend/project-api/src/**/*"],
 				"eslintConfig": ".eslintrc.json"
