@@ -3,17 +3,17 @@
 		"plugin:@nx/react-typescript",
 		"next",
 		"next/core-web-vitals",
-		"../../../.eslintrc.json"
+		"../../.eslintrc.json"
 	],
 	"parserOptions": {
 		"project": [
 			"(../../|./)tsconfig.base.json",
-			"(apps/frontend/portfolio/|./)tsconfig.json",
-			"(apps/frontend/portfolio/|./)tsconfig.spec.json"
+			"(apps/portfolio/|./)tsconfig.json",
+			"(apps/portfolio/|./)tsconfig.spec.json"
 		]
 	},
 	"rules": {
-		"@next/next/no-html-link-for-pages": ["error", "apps/frontend/portfolio/pages"],
+		"@next/next/no-html-link-for-pages": ["error", "apps/portfolio/app"],
 		"dot-notation": "off"
 	}
 }
