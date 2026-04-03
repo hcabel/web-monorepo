@@ -16,13 +16,6 @@ YoutubeViewsEn,
 VsCodeInstalls
 )
 
-# Project IDs matching the hardcoded data in the project-api and portfolio
-PROJECT_IDS = {
-"Unreal VsCode Helper": "633900a7471d8a488d9ab4a3",
-"HugoMeet": "6338ffeb5e00275fb5051c9e",
-"Procedural Terrain": "6339018aa4c9d89b6ed06751",
-}
-
 def main():
 projects = [
 Project("Unreal VsCode Helper", [
@@ -42,15 +35,10 @@ YoutubeViews("https://www.youtube.com/watch?v=MHB8Tn3zbqM")
 ])
 ]
 
-# Build stats JSON keyed by project id
+# Build stats JSON keyed by project name
 all_stats = {}
 
 for project in projects:
-project_id = PROJECT_IDS.get(project.name)
-if not project_id:
-print(f"Error: no id mapping found for project '{project.name}'")
-continue
-
 project_stats = {}
 
 for stat in project.stats:
@@ -62,13 +50,13 @@ if platform not in project_stats:
 project_stats[platform] = []
 
 project_stats[platform].append({
-"_id": f"{project_id}_{platform}_{str(stat.name)}",
+"_id": f"{project.name}_{platform}_{str(stat.name)}",
 "name": stat.name.to_mongo(),
 "value": stat.value,
 "url": stat.get_url(),
 })
 
-all_stats[project_id] = project_stats
+all_stats[project.name] = project_stats
 
 # Write stats to JSON file
 output_path = os.path.normpath(os.path.join(
