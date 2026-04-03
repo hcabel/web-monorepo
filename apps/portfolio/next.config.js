@@ -5,7 +5,7 @@ const { withNx } = require("@nx/next/plugins/with-nx");
 const nextConfig = {
 	compress: true,
 	reactStrictMode: false,
-	distDir: "../../../dist/apps/frontend/portfolio/.next",
+	distDir: "../../dist/apps/portfolio/.next",
 	nx: {
 		svgr: false,
 	},

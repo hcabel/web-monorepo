@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
 	output: {
-		path: path.join(__dirname, '../../../dist/apps/backend/telemetry-api'),
+		path: path.join(__dirname, '../../dist/apps/telemetry-api'),
 	},
 	plugins: [
 		new NxAppWebpackPlugin({

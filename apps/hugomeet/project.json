@@ -1,7 +1,7 @@
 {
-	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"name": "frontend-hugomeet",
-	"sourceRoot": "apps/frontend/hugomeet/src",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "hugomeet",
+	"sourceRoot": "apps/hugomeet/src",
 	"projectType": "application",
 	"targets": {
 		"build": {
@@ -10,14 +10,14 @@
 			"defaultConfiguration": "production",
 			"options": {
 				"compiler": "babel",
-				"outputPath": "dist/apps/frontend/hugomeet",
-				"index": "apps/frontend/hugomeet/src/public/index.html",
+				"outputPath": "dist/apps/hugomeet",
+				"index": "apps/hugomeet/src/public/index.html",
 				"baseHref": "/",
-				"main": "apps/frontend/hugomeet/src/index.js",
-				"tsConfig": "apps/frontend/hugomeet/tsconfig.app.json",
+				"main": "apps/hugomeet/src/index.js",
+				"tsConfig": "apps/hugomeet/tsconfig.app.json",
 				"assets": [
-					"apps/frontend/hugomeet/src/public/favicon.ico",
-					"apps/frontend/hugomeet/src/public"
+					"apps/hugomeet/src/public/favicon.ico",
+					"apps/hugomeet/src/public"
 				],
 				"scripts": [],
 				"webpackConfig": "@nx/react/plugins/webpack"
@@ -43,16 +43,16 @@
 			"executor": "@nx/web:dev-server",
 			"defaultConfiguration": "development",
 			"options": {
-				"buildTarget": "frontend-hugomeet:build",
+				"buildTarget": "hugomeet:build",
 				"port": 3000
 			},
 			"configurations": {
 				"development": {
-					"buildTarget": "frontend-hugomeet:build:development",
+					"buildTarget": "hugomeet:build:development",
 					"hmr": true
 				},
 				"production": {
-					"buildTarget": "frontend-hugomeet:build:production",
+					"buildTarget": "hugomeet:build:production",
 					"hmr": false,
 					"watch": false,
 					"liveReload": false,
@@ -65,14 +65,14 @@
 			"dependsOn": ["build", "^deploy"],
 			"options": {
 				"commands": [
-					"pm2 start --name HugoMeet apps/frontend/hugomeet/server.js -- 3000"
+					"pm2 start --name HugoMeet apps/hugomeet/server.js -- 3000"
 				]
 			}
 		},
 		"lint": {
 			"executor": "@nx/eslint:lint",
 			"options": {
-				"lintFilePatterns": ["apps/backend/project-api/src/**/*"],
+				"lintFilePatterns": ["apps/hugomeet/src/**/*"],
 				"eslintConfig": ".eslintrc.json"
 			},
 			"defaultConfiguration": "test",
@@ -84,5 +84,5 @@
 		}
 	},
 	"tags": [],
-	"implicitDependencies": ["backend-hugomeet-SS"]
+	"implicitDependencies": ["hugomeet-SS"]
 }

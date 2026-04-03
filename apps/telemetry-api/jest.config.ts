@@ -1,7 +1,7 @@
 /* eslint-disable */
 export default {
 	displayName: "telemetry-api",
-	preset: "../../../jest.preset.js",
+	preset: "../../jest.preset.js",
 	globals: {
 		"ts-jest": {
 			tsconfig: "<rootDir>/tsconfig.spec.json",
@@ -12,6 +12,6 @@ export default {
 		"^.+\\.[tj]s$": "ts-jest",
 	},
 	moduleFileExtensions: ["ts", "js", "html"],
-	coverageDirectory: "../../../coverage/apps/backend/telemetry-api",
+	coverageDirectory: "../../coverage/apps/telemetry-api",
 	setupFiles: ["<rootDir>/src/testing/setup.ts"],
 };

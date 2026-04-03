@@ -77,6 +77,6 @@
       }
     }
   },
-  "defaultProject": "frontend-portfolio",
+  "defaultProject": "portfolio",
   "analytics": false
 }

@@ -19,5 +19,5 @@
 		}
 	},
 	"tags": [],
-	"implicitDependencies": ["backend-telemetry-api"]
+	"implicitDependencies": ["telemetry-api"]
 }

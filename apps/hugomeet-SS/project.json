@@ -1,25 +1,25 @@
 {
-	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"name": "backend-hugomeet-SS",
-	"sourceRoot": "apps/backend/hugomeet-SS",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "hugomeet-SS",
+	"sourceRoot": "apps/hugomeet-SS",
 	"projectType": "application",
 	"targets": {
 		"serve": {
 			"executor": "nx:run-commands",
 			"options": {
-				"command": "node apps/backend/hugomeet-SS/src/signallingServer.js"
+				"command": "node apps/hugomeet-SS/src/signallingServer.js"
 			}
 		},
 		"deploy": {
 			"executor": "nx:run-commands",
 			"options": {
-				"command": "pm2 delete HugoMeet-SS || : && pm2 start --name HugoMeet-SS apps/backend/hugomeet-SS/src/signallingServer.js"
+				"command": "pm2 delete HugoMeet-SS || : && pm2 start --name HugoMeet-SS apps/hugomeet-SS/src/signallingServer.js"
 			}
 		},
 		"lint": {
 			"executor": "@nx/eslint:lint",
 			"options": {
-				"lintFilePatterns": ["apps/backend/hugomeet-SS/**/*"]
+				"lintFilePatterns": ["apps/hugomeet-SS/**/*"]
 			},
 			"defaultConfiguration": "test",
 			"configurations": {

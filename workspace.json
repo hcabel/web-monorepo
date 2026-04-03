@@ -2,13 +2,13 @@
 	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
 	"version": 2,
 	"projects": {
-		"backend-hugomeet-SS": "apps/backend/hugomeet-SS",
-		"backend-project-api": "apps/backend/project-api",
-		"backend-telemetry-api": "apps/backend/telemetry-api",
+		"hugomeet-SS": "apps/hugomeet-SS",
+		"project-api": "apps/project-api",
+		"telemetry-api": "apps/telemetry-api",
 		"bridge-project-api": "libs/bridges/bridge-project-api",
 		"bridge-telemetry-api": "libs/bridges/bridge-telemetry-api",
-		"frontend-hugomeet": "apps/frontend/hugomeet",
-		"frontend-portfolio": "apps/frontend/portfolio",
+		"hugomeet": "apps/hugomeet",
+		"portfolio": "apps/portfolio",
 		"rest-api-utils": "libs/rest-api-utils",
 		"types-project-api": "libs/types/types-project-api",
 		"types-telemetry-api": "libs/types/types-telemetry-api"

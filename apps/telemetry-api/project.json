@@ -1,15 +1,15 @@
 {
-	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"name": "backend-project-api",
-	"sourceRoot": "apps/backend/project-api/src",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "telemetry-api",
+	"sourceRoot": "apps/telemetry-api/src",
 	"projectType": "application",
 	"targets": {
 		"build": {
 			"executor": "@nx/webpack:webpack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"outputPath": "dist/apps/backend/project-api",
-				"webpackConfig": "apps/backend/project-api/webpack.config.js"
+				"outputPath": "dist/apps/telemetry-api",
+				"webpackConfig": "apps/telemetry-api/webpack.config.js"
 			},
 			"configurations": {
 				"production": {
@@ -21,11 +21,11 @@
 		"serve": {
 			"executor": "@nx/js:node",
 			"options": {
-				"buildTarget": "backend-project-api:build"
+				"buildTarget": "telemetry-api:build"
 			},
 			"configurations": {
 				"production": {
-					"buildTarget": "backend-project-api:build:production",
+					"buildTarget": "telemetry-api:build:production",
 					"inspect": false,
 					"watch": false
 				}
@@ -34,7 +34,7 @@
 		"lint": {
 			"executor": "@nx/eslint:lint",
 			"options": {
-				"lintFilePatterns": ["apps/backend/project-api/src/**/*"]
+				"lintFilePatterns": ["apps/telemetry-api/**/*.ts"]
 			},
 			"defaultConfiguration": "test",
 			"configurations": {
@@ -45,9 +45,9 @@
 		},
 		"test": {
 			"executor": "@nx/jest:jest",
-			"outputs": ["coverage/apps/backend/project-api"],
+			"outputs": ["coverage/apps/telemetry-api"],
 			"options": {
-				"jestConfig": "apps/backend/project-api/jest.config.ts",
+				"jestConfig": "apps/telemetry-api/jest.config.ts",
 				"passWithNoTests": true
 			}
 		}
