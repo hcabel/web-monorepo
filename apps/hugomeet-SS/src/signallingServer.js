@@ -19,7 +19,35 @@ const ws = require("ws");
 
 const onClientConnection = require("./wsClient");
 const clientServer = new ws.Server({ server: server });
-clientServer.on("connection", onClientConnection);
+
+// Heartbeat interval (30 seconds is safe for most proxies)
+const HEARTBEAT_INTERVAL = 30000;
+
+clientServer.on("connection", (socket, req) => {
+	socket.isAlive = true;
+
+	socket.on("pong", () => {
+		socket.isAlive = true;
+	});
+
+	onClientConnection(socket, req);
+});
+
+// Ping all clients periodically to keep connections alive
+const heartbeatInterval = setInterval(() => {
+	clientServer.clients.forEach((socket) => {
+		if (socket.isAlive === false) {
+			return socket.terminate();
+		}
+		socket.isAlive = false;
+		socket.ping();
+	});
+}, HEARTBEAT_INTERVAL);
+
+clientServer.on("close", () => {
+	clearInterval(heartbeatInterval);
+});
+
 console.log(`WebSocket listening to Client connections on *:${port}`);
 
 server.listen(port, () => {
