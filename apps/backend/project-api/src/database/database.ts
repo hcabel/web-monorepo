@@ -8,7 +8,7 @@ function connect() {
 	return mongoose
 		.connect(process.env.MONGO_URI || "", {
 			w: "majority",
-			appName: "ProjectApi",
+			appName: "Monorepo",
 		})
 		.then((mongoDatabase) => {
 			// check if connection is successfull
