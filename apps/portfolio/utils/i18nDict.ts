@@ -87,6 +87,18 @@ export const i18nDict: I18nDict = {
 		en: "I'm always looking for <b>new challenges and opportunities</b> to collaborate with clients and help bring their ideas to life.<br /> Whether you have a <b>clear vision</b> for your project <b>or</b> you're <b>still brainstorming</b> and looking for guidance, I'm here to listen and help you shape your ideas into a plan of action.<br /> Let's work together to turn your vision into a reality.<br />",
 		fr: "Je suis toujours à la recherche de <b>nouveaux défis et opportunités</b> pour collaborer avec des clients et aider à concrétiser leurs idées.<br /> Que vous ayez une <b>vision claire</b> de votre projet <b>ou</b> que vous soyez <b>encore en train de brainstormer</b> et à la recherche d'orientation, je suis là pour écouter et vous aider à façonner vos idées en un plan d'action.<br /> Travaillons ensemble pour transformer votre vision en réalité.<br />",
 	},
+	"HugoMeet-Description": {
+		en: "HugoMeet is a video meeting platform, that I made to learn how to use WebRTC and video/audio streaming.",
+		fr: "HugoMeet est une plateforme de visioconférence, que j'ai réalisé pour apprendre à utiliser WebRTC et le streaming de vidéo et de son.",
+	},
+	"Unreal VsCode Helper-Description": {
+		en: "UVCH is a VSCode extension that provides a set of tools to help you develop Unreal Engine projects inside VsCode.",
+		fr: "UVCH est une extension VSCode qui met à disposition plusieurs outils pour vous aider à développer pour Unreal Engine avec VsCode.",
+	},
+	"Procedural Terrain-Description": {
+		en: "This is an Unreal Engine component that allows you to generate infinite terrain in any of your games. (Like Minecraft)",
+		fr: "Ceci est un actor dans Unreal Engine qui permet de créer des terrains à l'infini dans n'importe lequel de vos jeux (Un peu comme Minecraft)",
+	},
 	"Go to my Malt profile": {
 		en: "Go to my Malt profile",
 		fr: "Vers mon profil Malt",

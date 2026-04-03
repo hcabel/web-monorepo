@@ -1,23 +1,27 @@
 {
-	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"name": "bridge-telemetry-api",
-	"sourceRoot": "libs/bridges/bridge-telemetry-api/src",
-	"projectType": "library",
-	"targets": {
-		"lint": {
-			"executor": "@nx/eslint:lint",
-			"options": {
-				"eslintConfig": ".eslintrc.json",
-				"lintFilePatterns": ["libs/bridges/bridge-telemetry-api/src/**/*"]
-			},
-			"defaultConfiguration": "test",
-			"configurations": {
-				"fix": {
-					"fix": true
-				}
-			}
-		}
-	},
-	"tags": [],
-	"implicitDependencies": ["telemetry-api"]
+  "name": "bridge-telemetry-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/bridges/bridge-telemetry-api/src",
+  "projectType": "library",
+  "tags": [],
+  "implicitDependencies": [
+    "telemetry-api"
+  ],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "eslintConfig": ".eslintrc.json",
+        "lintFilePatterns": [
+          "libs/bridges/bridge-telemetry-api/src/**/*"
+        ]
+      },
+      "defaultConfiguration": "test",
+      "configurations": {
+        "fix": {
+          "fix": true
+        }
+      }
+    }
+  }
 }

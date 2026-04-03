@@ -1,55 +1,24 @@
 import Express from "express";
-import { IRequestResponse } from "@hcabel/rest-api-utils";
-import {
-	IRouteGetAllProjects,
-	IRouteGetProjectById,
-} from "@hcabel/types/ProjectApi";
 import { Types } from "mongoose";
+import { IRequestResponse } from "@hcabel/rest-api-utils";
+import { IRouteGetProjectStats } from "@hcabel/types/ProjectApi";
 import { IStatModelArrayToIStats } from "./utils/stats.utils";
 import { IProjectApiDatabase } from "../../database/database";
 
-export async function get_all_projects(
+// Hardcoded mapping of project names to their MongoDB ObjectIds in the stats collection.
+// These IDs correspond to the project documents originally stored in the database.
+const PROJECT_STAT_IDS: Record<string, string> = {
+	"HugoMeet": "6338ffeb5e00275fb5051c9e",
+	"Unreal VsCode Helper": "633900a7471d8a488d9ab4a3",
+	"Procedural Terrain": "6339018aa4c9d89b6ed06751",
+};
+
+export async function get_project_stats(
 	req: Express.Request
-): Promise<IRequestResponse<IRouteGetAllProjects>> {
-	const filter = req.query;
-
-	// Get Database
-	const db = req.app.get("database") as IProjectApiDatabase;
-
-	// Get all projects
-	const projects = await db.queries.Project.read({});
-	if (!projects) {
-		throw new Error("Query failed while getting all projects");
-	}
-
-	const filteredProjects = projects.filter((project: any) => {
-		for (const key in filter) {
-			if (
-				project.hasOwnProperty(key) === false ||
-				project[key] !== filter[key]
-			) {
-				return false;
-			}
-		}
-		return true;
-	});
-
-	return {
-		status: 200,
-		json: filteredProjects.map((project) => {
-			return {
-				...project,
-				_id: project._id.toString(),
-			};
-		}),
-	};
-}
-
-export async function get_project_by_id(
-	req: Express.Request
-): Promise<IRequestResponse<IRouteGetProjectById>> {
+): Promise<IRequestResponse<IRouteGetProjectStats>> {
 	// check inputs
-	if (!req.params.id || !Types.ObjectId.isValid(req.params.id)) {
+	const projectName = req.params.name?.trim();
+	if (!projectName) {
 		return {
 			status: 400,
 			json: {
@@ -58,28 +27,22 @@ export async function get_project_by_id(
 		};
 	}
 
-	const projectId = new Types.ObjectId(req.params.id);
-
-	// Get Database
-	const db = req.app.get("database") as IProjectApiDatabase;
-
-	// Get project by id
-	const project = await db.queries.Project.read_single({
-		_id: projectId,
-	});
-	if (project === undefined) {
+	const projectId = PROJECT_STAT_IDS[projectName];
+	if (!projectId) {
 		return {
 			status: 404,
 			json: {
 				error: "Project not found",
 			},
 		};
-	} else if (!project) {
-		throw new Error("Query failed while getting project by id");
 	}
 
+	// Get Database
+	const db = req.app.get("database") as IProjectApiDatabase;
+
+	// Get stats by project ID
 	const stats = await db.queries.Stat.read({
-		project_id: projectId,
+		project_id: new Types.ObjectId(projectId),
 	});
 	if (!stats) {
 		throw new Error("Query failed while getting stats by project id");
@@ -87,10 +50,6 @@ export async function get_project_by_id(
 
 	return {
 		status: 200,
-		json: {
-			...project,
-			_id: project._id.toString(),
-			stats: IStatModelArrayToIStats(stats),
-		},
+		json: IStatModelArrayToIStats(stats),
 	};
 }

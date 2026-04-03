@@ -3,20 +3,20 @@ import { Routes as ProjectApiRoutes } from "@hcabel/bridges/ProjectApi";
 import ProceduralTerrainExperienceCanvas from "./ProceduralTerrainExperienceCanvas";
 
 export default async function ProjectsPage() {
-	const project = await ProjectApiRoutes.get_single_project("6339018aa4c9d89b6ed06751");
+	const stats = await ProjectApiRoutes.get_project_stats("Procedural Terrain");
 	return (
 		<>
 			<ProceduralTerrainExperienceCanvas />
 			<Project
-				project={project}
+				name="Procedural Terrain"
+				stats={stats}
 			/>
 		</>
 	);
 }
 
-export const revalidate = 60 * 60 * 24; /* each day */
+export const revalidate = 86400; /* each day */
 
-// Tell nextjs to pre-render the pages where the dynamic params [locale] is "en" and "fr"
 export async function generateStaticParams() {
 	return [{ locale: "en" }, { locale: "fr" }];
 }

@@ -13,7 +13,7 @@ import VsCodeStats from "./VsCodeStats";
 import YoutubeStats from "./YoutubeStats";
 
 // Hooks
-import { I18nDictText, I18nText } from "Components/i18nText";
+import { I18nDictText } from "Components/i18nText";
 
 export interface IProjectProps {
 	id?: string;
@@ -24,7 +24,8 @@ export interface IProjectProps {
 	moreButtonRedirection?: string;
 	moreTextOverride?: string;
 
-	project: ProjectApiTypes.IRouteGetProjectById;
+	name: string;
+	stats?: ProjectApiTypes.IRouteGetProjectStats;
 
 	hideDescription?: boolean;
 	hideStats?: boolean;
@@ -32,7 +33,7 @@ export interface IProjectProps {
 }
 
 export default function Project(props: IProjectProps) {
-	if (!props.project || Object.keys(props.project).length === 0) {
+	if (!props.name) {
 		return null;
 	}
 	return (
@@ -46,14 +47,14 @@ export default function Project(props: IProjectProps) {
 					className={`h1 ${Style.ProjectName}`}
 					data-cy={`Project-Title`}
 				>
-					{props.project.name}
+					{props.name}
 				</h1>
 				{!props.hideDescription && (
 					<h4
 						className={`h4 ${Style.ProjectDescription}`}
 						data-cy={`Project-Description`}
 					>
-						<I18nText i18nText={props.project.description} />
+						<I18nDictText i18nKey={`${props.name}-Description`} />
 					</h4>
 				)}
 				{props.moreButtonRedirection && (
@@ -76,18 +77,18 @@ export default function Project(props: IProjectProps) {
 					</Link>
 				)}
 			</div>
-			{!props.hideStats && (
+			{!props.hideStats && props.stats && (
 				<div className={Style.ProjectStats}>
-					{props.project.stats["youtube"] && (
-						<YoutubeStats stats={props.project.stats["youtube"]} />
+					{props.stats["youtube"] && (
+						<YoutubeStats stats={props.stats["youtube"]} />
 					)}
-					{props.project.stats["vscode marketplace"] && (
+					{props.stats["vscode marketplace"] && (
 						<VsCodeStats
-							stats={props.project.stats["vscode marketplace"]}
+							stats={props.stats["vscode marketplace"]}
 						/>
 					)}
-					{props.project.stats["github"] && (
-						<GithubStats stats={props.project.stats["github"]} />
+					{props.stats["github"] && (
+						<GithubStats stats={props.stats["github"]} />
 					)}
 				</div>
 			)}

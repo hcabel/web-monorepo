@@ -8,6 +8,7 @@
 
 # dependencies
 node_modules
+package-lock.json
 
 # NX cache
 .nx
@@ -54,3 +55,5 @@ Thumbs.db
 
 # python
 __pycache__
+.claude/worktrees
+.claude/settings.local.json

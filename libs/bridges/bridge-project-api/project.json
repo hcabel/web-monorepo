@@ -1,23 +1,30 @@
 {
-	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"name": "bridge-project-api",
-	"sourceRoot": "libs/bridges/bridge-project-api/src",
-	"projectType": "library",
-	"targets": {
-		"lint": {
-			"executor": "@nx/eslint:lint",
-			"options": {
-				"eslintConfig": ".eslintrc.json",
-				"lintFilePatterns": ["libs/bridges/bridge-project-api/src/**/*"]
-			},
-			"defaultConfiguration": "test",
-			"configurations": {
-				"fix": {
-					"fix": true
-				}
-			}
-		}
-	},
-	"tags": ["frontend", "library"],
-	"implicitDependencies": ["project-api"]
+  "name": "bridge-project-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/bridges/bridge-project-api/src",
+  "projectType": "library",
+  "tags": [
+    "frontend",
+    "library"
+  ],
+  "implicitDependencies": [
+    "project-api"
+  ],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "eslintConfig": ".eslintrc.json",
+        "lintFilePatterns": [
+          "libs/bridges/bridge-project-api/src/**/*"
+        ]
+      },
+      "defaultConfiguration": "test",
+      "configurations": {
+        "fix": {
+          "fix": true
+        }
+      }
+    }
+  }
 }
