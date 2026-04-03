@@ -43,21 +43,10 @@
           "apps/project-api/src/**/*"
         ]
       },
-      "defaultConfiguration": "test",
       "configurations": {
         "fix": {
           "fix": true
         }
-      }
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/apps/project-api"
-      ],
-      "options": {
-        "jestConfig": "apps/project-api/jest.config.ts",
-        "passWithNoTests": true
       }
     }
   }
