@@ -16,8 +16,6 @@
 	<Br/>Contain a "mocking" app to test the routes (it's pretty cool)
   - [telemetry-api](https://github.com/hcabel/hcabel-monorepo/tree/DEV/apps/backend/telemetry-api)
     RestApi that manage my telemetry data **(NodeJs, Express, ...)**
-- [portfolio-e2e](https://github.com/hcabel/hcabel-monorepo/tree/DEV/apps/portfolio-e2e)
-  My portfolio e2e tests **(Cypress)**
 - **And more to come...** *maybe... depend of my mood*
 
 ## Monorepo structure

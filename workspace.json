@@ -9,7 +9,6 @@
 		"bridge-telemetry-api": "libs/bridges/bridge-telemetry-api",
 		"frontend-hugomeet": "apps/frontend/hugomeet",
 		"frontend-portfolio": "apps/frontend/portfolio",
-		"portfolio-e2e": "apps/portfolio-e2e",
 		"rest-api-utils": "libs/rest-api-utils",
 		"types-project-api": "libs/types/types-project-api",
 		"types-telemetry-api": "libs/types/types-telemetry-api"
