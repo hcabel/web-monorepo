@@ -27,7 +27,7 @@ export interface IProjectProps {
 	moreButtonRedirection?: string;
 	moreTextOverride?: string;
 
-	project: IProject;
+	project: IProject | undefined;
 	stats?: ProjectApiTypes.IRouteGetProjectStats;
 
 	hideDescription?: boolean;

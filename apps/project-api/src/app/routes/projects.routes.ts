@@ -8,7 +8,8 @@ export async function get_project_stats(
 req: Express.Request
 ): Promise<IRequestResponse<IRouteGetProjectStats>> {
 // check inputs
-if (!req.params.name || typeof req.params.name !== "string" || req.params.name.trim() === "") {
+const projectName = req.params.name?.trim();
+if (!projectName) {
 return {
 status: 400,
 json: {
@@ -16,8 +17,6 @@ error: "Invalid inputs",
 },
 };
 }
-
-const projectName = req.params.name.trim();
 
 // Get Database
 const db = req.app.get("database") as IProjectApiDatabase;
