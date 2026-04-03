@@ -1,0 +1,56 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "project-api",
+	"sourceRoot": "apps/project-api/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nx/webpack:webpack",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/apps/project-api",
+				"webpackConfig": "apps/project-api/webpack.config.js"
+			},
+			"configurations": {
+				"production": {
+					"optimization": true,
+					"extractLicenses": true
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nx/js:node",
+			"options": {
+				"buildTarget": "project-api:build"
+			},
+			"configurations": {
+				"production": {
+					"buildTarget": "project-api:build:production",
+					"inspect": false,
+					"watch": false
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"options": {
+				"lintFilePatterns": ["apps/project-api/src/**/*"]
+			},
+			"defaultConfiguration": "test",
+			"configurations": {
+				"fix": {
+					"fix": true
+				}
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/apps/project-api"],
+			"options": {
+				"jestConfig": "apps/project-api/jest.config.ts",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": ["backend"]
+}

@@ -1,9 +1,0 @@
-{
-	"extends": ["../../../.eslintrc.json"],
-	"parserOptions": {
-		"project": [
-			"(../../|./)tsconfig.base.json",
-			"(libs/types/types-telemetry-api/|./)tsconfig.json"
-		]
-	}
-}
