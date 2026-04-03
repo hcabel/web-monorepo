@@ -4,6 +4,9 @@ import Link from "next/link";
 // External project
 import { Types as ProjectApiTypes } from "@hcabel/bridges/ProjectApi";
 
+// Local project data
+import { IProject } from "Data/projects";
+
 // Design
 import Style from "./Project.module.scss";
 
@@ -24,7 +27,8 @@ export interface IProjectProps {
 	moreButtonRedirection?: string;
 	moreTextOverride?: string;
 
-	project: ProjectApiTypes.IRouteGetProjectById;
+	project: IProject;
+	stats?: ProjectApiTypes.IRouteGetProjectStats;
 
 	hideDescription?: boolean;
 	hideStats?: boolean;
@@ -32,7 +36,7 @@ export interface IProjectProps {
 }
 
 export default function Project(props: IProjectProps) {
-	if (!props.project || Object.keys(props.project).length === 0) {
+	if (!props.project) {
 		return null;
 	}
 	return (
@@ -76,18 +80,18 @@ export default function Project(props: IProjectProps) {
 					</Link>
 				)}
 			</div>
-			{!props.hideStats && (
+			{!props.hideStats && props.stats && (
 				<div className={Style.ProjectStats}>
-					{props.project.stats["youtube"] && (
-						<YoutubeStats stats={props.project.stats["youtube"]} />
+					{props.stats["youtube"] && (
+						<YoutubeStats stats={props.stats["youtube"]} />
 					)}
-					{props.project.stats["vscode marketplace"] && (
+					{props.stats["vscode marketplace"] && (
 						<VsCodeStats
-							stats={props.project.stats["vscode marketplace"]}
+							stats={props.stats["vscode marketplace"]}
 						/>
 					)}
-					{props.project.stats["github"] && (
-						<GithubStats stats={props.project.stats["github"]} />
+					{props.stats["github"] && (
+						<GithubStats stats={props.stats["github"]} />
 					)}
 				</div>
 			)}

@@ -1,22 +1,28 @@
 {
-	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"name": "types-telemetry-api",
-	"sourceRoot": "libs/types/types-telemetry-api/src",
-	"projectType": "library",
-	"targets": {
-		"lint": {
-			"executor": "@nx/eslint:lint",
-			"options": {
-				"eslintConfig": ".eslintrc.json",
-				"lintFilePatterns": ["libs/types/types-telemetry-api/src/**/*"]
-			},
-			"defaultConfiguration": "test",
-			"configurations": {
-				"fix": {
-					"fix": true
-				}
-			}
-		}
-	},
-	"tags": ["shared", "types", "library"]
+  "name": "types-telemetry-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/types/types-telemetry-api/src",
+  "projectType": "library",
+  "tags": [
+    "shared",
+    "types",
+    "library"
+  ],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "eslintConfig": ".eslintrc.json",
+        "lintFilePatterns": [
+          "libs/types/types-telemetry-api/src/**/*"
+        ]
+      },
+      "defaultConfiguration": "test",
+      "configurations": {
+        "fix": {
+          "fix": true
+        }
+      }
+    }
+  }
 }

@@ -1,67 +1,78 @@
 {
-	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"name": "portfolio",
-	"sourceRoot": "apps/portfolio",
-	"projectType": "application",
-	"targets": {
-		"build": {
-			"executor": "@nx/next:build",
-			"outputs": ["{options.outputPath}"],
-			"nextConfig": "apps/portfolio/next.config.js",
-			"options": {
-				"root": "apps/portfolio",
-				"outputPath": "dist/apps/portfolio"
-			}
-		},
-		"serve-DEV": {
-			"executor": "@nx/next:server",
-			"options": {
-				"buildTarget": "portfolio:build",
-				"dev": true
-			},
-			"configurations": {
-				"OnLocalNetwork": {
-					"hostname": "10.0.0.78"
-				}
-			}
-		},
-		"serve-PROD": {
-			"executor": "@nx/next:server",
-			"options": {
-				"buildTarget": "portfolio:build",
-				"dev": false
-			},
-			"configurations": {
-				"OnLocalNetwork": {
-					"hostname": "10.0.0.78"
-				}
-			}
-		},
-		"deploy": {
-			"executor": "nx:run-commands",
-			"dependsOn": ["build"],
-			"options": {
-				"commands": ["pm2 start --name Portfolio next -- start -p 4200"]
-			}
-		},
-		"lint": {
-			"executor": "@nx/eslint:lint",
-			"options": {
-				"lintFilePatterns": [
-					"apps/portfolio/pages/**/*",
-					"apps/portfolio/components/**/*",
-					"apps/portfolio/styles/**/*",
-					"apps/portfolio/3D/**/*"
-				]
-			},
-			"defaultConfiguration": "test",
-			"configurations": {
-				"fix": {
-					"fix": true
-				}
-			}
-		}
-	},
-	"tags": ["frontend"],
-	"implicitDependencies": ["bridge-project-api", "bridge-telemetry-api"]
+  "name": "portfolio",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/portfolio",
+  "projectType": "application",
+  "tags": [
+    "frontend"
+  ],
+  "implicitDependencies": [
+    "bridge-project-api",
+    "bridge-telemetry-api"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "nextConfig": "apps/portfolio/next.config.js",
+      "options": {
+        "root": "apps/portfolio",
+        "outputPath": "dist/apps/portfolio"
+      }
+    },
+    "serve-DEV": {
+      "executor": "@nx/next:server",
+      "options": {
+        "buildTarget": "portfolio:build",
+        "dev": true
+      },
+      "configurations": {
+        "OnLocalNetwork": {
+          "hostname": "10.0.0.78"
+        }
+      }
+    },
+    "serve-PROD": {
+      "executor": "@nx/next:server",
+      "options": {
+        "buildTarget": "portfolio:build",
+        "dev": false
+      },
+      "configurations": {
+        "OnLocalNetwork": {
+          "hostname": "10.0.0.78"
+        }
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        "build"
+      ],
+      "options": {
+        "commands": [
+          "pm2 start --name Portfolio next -- start -p 4200"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/portfolio/pages/**/*",
+          "apps/portfolio/components/**/*",
+          "apps/portfolio/styles/**/*",
+          "apps/portfolio/3D/**/*"
+        ]
+      },
+      "defaultConfiguration": "test",
+      "configurations": {
+        "fix": {
+          "fix": true
+        }
+      }
+    }
+  }
 }

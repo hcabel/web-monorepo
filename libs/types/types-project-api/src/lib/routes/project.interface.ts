@@ -1,5 +1,2 @@
-import { IStats } from '../database';
-import { IProject } from '../database/models/project.interface';
-
-export type IRouteGetAllProjects = IProject[];
-export type IRouteGetProjectById = IProject & { stats: IStats };
+// Project data is now hardcoded in the portfolio frontend.
+// The project-api only serves dynamic stats, queried by project name.

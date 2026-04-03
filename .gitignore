@@ -54,3 +54,5 @@ Thumbs.db
 
 # python
 __pycache__
+.claude/worktrees
+.claude/settings.local.json
