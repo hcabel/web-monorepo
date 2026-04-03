@@ -1,5 +1,5 @@
 {
-	"extends": "../../../tsconfig.base.json",
+	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
 		"jsx": "preserve",
 		"allowJs": true,
@@ -28,11 +28,11 @@
 			],
 
 			// App local path
-			"App/*": ["apps/frontend/portfolio/app/*"],
-			"Components/*": ["apps/frontend/portfolio/components/*"],
-			"3D/*": ["apps/frontend/portfolio/3D/*"],
-			"Images/*": ["apps/frontend/portfolio/assets/images/*"],
-			"Utils/*": ["apps/frontend/portfolio/utils/*"]
+			"App/*": ["apps/portfolio/app/*"],
+			"Components/*": ["apps/portfolio/components/*"],
+			"3D/*": ["apps/portfolio/3D/*"],
+			"Images/*": ["apps/portfolio/assets/images/*"],
+			"Utils/*": ["apps/portfolio/utils/*"]
 		},
 		"plugins": [
 			{

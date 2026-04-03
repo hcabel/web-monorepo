@@ -1,22 +1,22 @@
 {
-	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"name": "frontend-portfolio",
-	"sourceRoot": "apps/frontend/portfolio",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "portfolio",
+	"sourceRoot": "apps/portfolio",
 	"projectType": "application",
 	"targets": {
 		"build": {
 			"executor": "@nx/next:build",
 			"outputs": ["{options.outputPath}"],
-			"nextConfig": "apps/frontend/portfolio/next.config.js",
+			"nextConfig": "apps/portfolio/next.config.js",
 			"options": {
-				"root": "apps/frontend/portfolio",
-				"outputPath": "dist/apps/frontend/portfolio"
+				"root": "apps/portfolio",
+				"outputPath": "dist/apps/portfolio"
 			}
 		},
 		"serve-DEV": {
 			"executor": "@nx/next:server",
 			"options": {
-				"buildTarget": "frontend-portfolio:build",
+				"buildTarget": "portfolio:build",
 				"dev": true
 			},
 			"configurations": {
@@ -28,7 +28,7 @@
 		"serve-PROD": {
 			"executor": "@nx/next:server",
 			"options": {
-				"buildTarget": "frontend-portfolio:build",
+				"buildTarget": "portfolio:build",
 				"dev": false
 			},
 			"configurations": {
@@ -48,10 +48,10 @@
 			"executor": "@nx/eslint:lint",
 			"options": {
 				"lintFilePatterns": [
-					"apps/frontend/portfolio/pages/**/*",
-					"apps/frontend/portfolio/components/**/*",
-					"apps/frontend/portfolio/styles/**/*",
-					"apps/frontend/portfolio/3D/**/*"
+					"apps/portfolio/pages/**/*",
+					"apps/portfolio/components/**/*",
+					"apps/portfolio/styles/**/*",
+					"apps/portfolio/3D/**/*"
 				]
 			},
 			"defaultConfiguration": "test",
