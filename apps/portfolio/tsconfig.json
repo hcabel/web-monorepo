@@ -32,8 +32,7 @@
 			"Components/*": ["apps/portfolio/components/*"],
 			"3D/*": ["apps/portfolio/3D/*"],
 			"Images/*": ["apps/portfolio/assets/images/*"],
-			"Utils/*": ["apps/portfolio/utils/*"],
-			"Data/*": ["apps/portfolio/data/*"]
+			"Utils/*": ["apps/portfolio/utils/*"]
 		},
 		"plugins": [
 			{

@@ -1,8 +1,17 @@
 import Express from "express";
+import { Types } from "mongoose";
 import { IRequestResponse } from "@hcabel/rest-api-utils";
 import { IRouteGetProjectStats } from "@hcabel/types/ProjectApi";
 import { IStatModelArrayToIStats } from "./utils/stats.utils";
 import { IProjectApiDatabase } from "../../database/database";
+
+// Hardcoded mapping of project names to their MongoDB ObjectIds in the stats collection.
+// These IDs correspond to the project documents originally stored in the database.
+const PROJECT_STAT_IDS: Record<string, string> = {
+"HugoMeet": "6338ffeb5e00275fb5051c9e",
+"Unreal VsCode Helper": "633900a7471d8a488d9ab4a3",
+"Procedural Terrain": "6339018aa4c9d89b6ed06751",
+};
 
 export async function get_project_stats(
 req: Express.Request
@@ -18,25 +27,22 @@ error: "Invalid inputs",
 };
 }
 
-// Get Database
-const db = req.app.get("database") as IProjectApiDatabase;
-
-// Look up project by name to get its ID
-const project = await db.queries.Project.read_single({ name: projectName });
-if (project === undefined) {
+const projectId = PROJECT_STAT_IDS[projectName];
+if (!projectId) {
 return {
 status: 404,
 json: {
 error: "Project not found",
 },
 };
-} else if (!project) {
-throw new Error("Query failed while getting project by name");
 }
+
+// Get Database
+const db = req.app.get("database") as IProjectApiDatabase;
 
 // Get stats by project ID
 const stats = await db.queries.Stat.read({
-project_id: project._id,
+project_id: new Types.ObjectId(projectId),
 });
 if (!stats) {
 throw new Error("Query failed while getting stats by project id");

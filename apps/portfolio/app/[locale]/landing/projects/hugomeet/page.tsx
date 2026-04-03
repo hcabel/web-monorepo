@@ -1,17 +1,15 @@
 import Project from "App/[locale]/landing/(elements)/project/Projects";
 import { Routes as ProjectApiRoutes } from "@hcabel/bridges/ProjectApi";
-import { getProject } from "Data/projects";
 
 import HugoMeetExperienceCanvas from "./HugoMeetExperienceCanvas";
 
 export default async function ProjectsPage() {
-const project = getProject("HugoMeet");
 const stats = await ProjectApiRoutes.get_project_stats("HugoMeet");
 return (
 <>
 <HugoMeetExperienceCanvas />
 <Project
-project={project}
+name="HugoMeet"
 stats={stats}
 moreButtonRedirection={"/redirects/hugomeet"}
 moreTextOverride={"Go to HugoMeet"}
