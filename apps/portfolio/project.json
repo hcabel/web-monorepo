@@ -7,7 +7,7 @@
     "frontend"
   ],
   "implicitDependencies": [
-    "bridge-project-api",
+    "bridge-caching-api",
     "bridge-telemetry-api"
   ],
   "targets": {

@@ -1,5 +1,5 @@
 import Project from "App/[locale]/landing/(elements)/project/Projects";
-import { Routes as ProjectApiRoutes } from "@hcabel/bridges/ProjectApi";
+import { Routes as ProjectApiRoutes } from "@hcabel/bridges/CachingApi";
 
 import HugoMeetExperienceCanvas from "./HugoMeetExperienceCanvas";
 

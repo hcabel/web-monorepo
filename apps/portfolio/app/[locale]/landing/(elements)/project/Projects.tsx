@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 // External project
-import { Types as ProjectApiTypes } from "@hcabel/bridges/ProjectApi";
+import { Types as ProjectApiTypes } from "@hcabel/bridges/CachingApi";
 
 // Design
 import Style from "./Project.module.scss";

@@ -1,6 +1,6 @@
 import Express from "express";
 import { IRequestResponse } from "@hcabel/rest-api-utils";
-import { IRouteGetProjectStats } from "@hcabel/types/ProjectApi";
+import { IRouteGetProjectStats } from "@hcabel/types/CachingApi";
 import { getProjectStats } from "../../data/statsStore";
 
 export async function get_project_stats(

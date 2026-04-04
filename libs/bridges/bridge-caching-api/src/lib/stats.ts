@@ -1,9 +1,9 @@
-import { IRouteGetProjectStats } from "@hcabel/types/ProjectApi";
+import { IRouteGetProjectStats } from "@hcabel/types/CachingApi";
 
 export function get_project_stats(projectName: string, options?: RequestInit): Promise<IRouteGetProjectStats> {
 	return (
 		fetch(
-			`${process.env.NX_PROJECT_API_ENDPOINT}/projects/${encodeURIComponent(projectName)}/stats`,
+			`${process.env.NX_CACHING_API_ENDPOINT}/projects/${encodeURIComponent(projectName)}/stats`,
 			options || {}
 		)
 			.then((res) => res.json() as Promise<IRouteGetProjectStats>)
