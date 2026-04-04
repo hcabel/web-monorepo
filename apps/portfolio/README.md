@@ -2,7 +2,7 @@
 
 My personal portfolio website showcasing my projects and experience.
 
-**Live:** <a href="https://hugocabel.com/">hugocabel.com</a>
+**Live:** [hugocabel.com](https://hugocabel.com)
 
 ## Tech Stack
 - NextJs with App Router
@@ -14,11 +14,3 @@ My personal portfolio website showcasing my projects and experience.
 - Internationalization (EN/FR)
 - 3D interactive backgrounds
 - Project showcase with live stats from GitHub, YouTube, etc.
-
-## Running locally
-```bash
-nx serve portfolio
-```
-
-## Dependencies
-- **caching-api** - Provides cached stats for projects (GitHub stars, YouTube views, etc.)
