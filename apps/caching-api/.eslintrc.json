@@ -3,8 +3,8 @@
 	"parserOptions": {
 		"project": [
 			"(../|./)tsconfig.base.json",
-			"(apps/project-api/|./)tsconfig.json",
-			"(apps/project-api/|./)tsconfig.spec.json"
+			"(apps/caching-api/|./)tsconfig.json",
+			"(apps/caching-api/|./)tsconfig.spec.json"
 		]
 	}
 }

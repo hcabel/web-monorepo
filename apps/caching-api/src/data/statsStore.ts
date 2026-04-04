@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { IStats } from '@hcabel/types/ProjectApi';
+import { IStats } from '@hcabel/types/CachingApi';
 
 export type IAllStats = Record<string, IStats>;
 

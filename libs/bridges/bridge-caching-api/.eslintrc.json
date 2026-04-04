@@ -3,7 +3,7 @@
 	"parserOptions": {
 		"project": [
 			"(../../|./)tsconfig.base.json",
-			"(libs/types/types-project-api/|./)tsconfig.json"
+			"(libs/bridges/bridge-caching-api/|./)tsconfig.json"
 		]
 	}
 }

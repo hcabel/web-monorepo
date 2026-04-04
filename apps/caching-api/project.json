@@ -1,7 +1,7 @@
 {
-  "name": "project-api",
+  "name": "caching-api",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/project-api/src",
+  "sourceRoot": "apps/caching-api/src",
   "projectType": "application",
   "tags": [
     "backend"
@@ -13,8 +13,8 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/apps/project-api",
-        "webpackConfig": "apps/project-api/webpack.config.js"
+        "outputPath": "dist/apps/caching-api",
+        "webpackConfig": "apps/caching-api/webpack.config.js"
       },
       "configurations": {
         "production": {
@@ -26,11 +26,11 @@
     "serve": {
       "executor": "@nx/js:node",
       "options": {
-        "buildTarget": "project-api:build"
+        "buildTarget": "caching-api:build"
       },
       "configurations": {
         "production": {
-          "buildTarget": "project-api:build:production",
+          "buildTarget": "caching-api:build:production",
           "inspect": false,
           "watch": false
         }
@@ -40,7 +40,7 @@
       "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
-          "apps/project-api/src/**/*"
+          "apps/caching-api/src/**/*"
         ]
       },
       "configurations": {
