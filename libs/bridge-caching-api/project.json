@@ -1,7 +1,7 @@
 {
   "name": "bridge-caching-api",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/bridges/bridge-caching-api/src",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/bridge-caching-api/src",
   "projectType": "library",
   "tags": [
     "frontend",
@@ -16,7 +16,7 @@
       "options": {
         "eslintConfig": ".eslintrc.json",
         "lintFilePatterns": [
-          "libs/bridges/bridge-caching-api/src/**/*"
+          "libs/bridge-caching-api/src/**/*"
         ]
       },
       "defaultConfiguration": "test",
