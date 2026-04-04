@@ -1,11 +1,7 @@
+import json
+import os
+import tempfile
 from dotenv import load_dotenv
-from utils.github_api_utils import get_github_repo_data
-from utils.vscode_marketplace_api_utils import get_vscode_marketplace_data
-from utils.youtube_api_utils import get_youtube_video_data
-from utils.mongo_db_utils import (
-	Connect,
-	update_stats
-)
 
 from projects import Project
 from stats import (
@@ -17,9 +13,16 @@ from stats import (
 	VsCodeInstalls
 )
 
+STATS_FILE_PATH = os.path.join(os.path.dirname(__file__), '../data/stats.json')
+
 def main():
-	# connect to db
-	db = Connect()
+	# Load existing stats from JSON (initialize to empty dict if file doesn't exist)
+	try:
+		with open(STATS_FILE_PATH, 'r') as f:
+			all_stats = json.load(f)
+	except FileNotFoundError:
+		print(f"Stats file not found at {STATS_FILE_PATH}, starting with empty stats.")
+		all_stats = {}
 
 	projects = [
 		Project("Unreal VsCode Helper", [
@@ -39,29 +42,42 @@ def main():
 		])
 	]
 
-	# get all projects in the db
-	projects_in_db = db.projects.find()
-	# convert to list
-	projects_in_db = list(projects_in_db)
-
 	for project in projects:
+		if project.name not in all_stats:
+			all_stats[project.name] = {}
 
-		# retrieve project in db
-		project_in_db = None
-		for project_db in projects_in_db:
-			if (project_db["name"] == project.name):
-				project_in_db = project_db
-				break
-
-		if (not project_in_db):
-			print(f"Error: project not found in db '{project.name}'")
-			continue
-
-		# update the stats in the db
 		for stat in project.stats:
 			stat.update()
-			update_stats(db, project_in_db["_id"], stat.platform, stat.name, stat.value, stat.get_url())
+
+			platform = stat.platform
+			if platform not in all_stats[project.name]:
+				all_stats[project.name][platform] = []
+
+			stat_name = stat.name.to_mongo()
+			# Find and update existing stat entry or add new one
+			existing = None
+			for entry in all_stats[project.name][platform]:
+				if entry["name"] == stat_name:
+					existing = entry
+					break
+
+			if existing is not None:
+				existing["value"] = stat.value
+			else:
+				all_stats[project.name][platform].append({
+					"name": stat_name,
+					"value": stat.value,
+					"url": stat.get_url()
+				})
+
 			print(f"Updated stat: {project.name}: {stat}")
+
+	# Write atomically: write to a temp file then replace the original
+	stats_dir = os.path.dirname(STATS_FILE_PATH)
+	with tempfile.NamedTemporaryFile('w', dir=stats_dir, delete=False, suffix='.tmp', encoding='utf-8') as tmp:
+		json.dump(all_stats, tmp, indent=2, ensure_ascii=False)
+		tmp_path = tmp.name
+	os.replace(tmp_path, STATS_FILE_PATH)
 
 if (__name__ == "__main__"):
 	load_dotenv()

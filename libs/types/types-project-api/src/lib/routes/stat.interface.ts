@@ -1,5 +1,14 @@
+import { II18nText } from '../i18n.interface';
 
-import { IStat, IStats } from '../database/models/stat.interface';
+export interface IStat {
+	name: II18nText;
+	value: number;
+	url: string;
+}
+
+export interface IStats {
+	[platform: string]: IStat[];
+}
 
 export type IRouteGetAllProjectPlatformStats = IStat[];
 
