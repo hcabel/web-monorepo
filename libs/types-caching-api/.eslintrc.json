@@ -3,8 +3,7 @@
 	"parserOptions": {
 		"project": [
 			"(../|./)tsconfig.base.json",
-			"(apps/telemetry-api/|./)tsconfig.json",
-			"(apps/telemetry-api/|./)tsconfig.spec.json"
+			"(libs/types-caching-api/|./)tsconfig.json"
 		]
 	}
 }

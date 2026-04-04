@@ -4,13 +4,10 @@
 	"projects": {
 		"hugomeet-SS": "apps/hugomeet-SS",
 		"caching-api": "apps/caching-api",
-		"telemetry-api": "apps/telemetry-api",
-		"bridge-caching-api": "libs/bridges/bridge-caching-api",
-		"bridge-telemetry-api": "libs/bridges/bridge-telemetry-api",
+		"bridge-caching-api": "libs/bridge-caching-api",
 		"hugomeet": "apps/hugomeet",
 		"portfolio": "apps/portfolio",
 		"rest-api-utils": "libs/rest-api-utils",
-		"types-caching-api": "libs/types/types-caching-api",
-		"types-telemetry-api": "libs/types/types-telemetry-api"
+		"types-caching-api": "libs/types-caching-api"
 	}
 }
