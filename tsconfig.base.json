@@ -23,17 +23,11 @@
 			"@hcabel/bridges/bridge-caching-api": [
 				"libs/bridges/bridge-caching-api/src/index.ts"
 			],
-			"@hcabel/bridges/bridge-telemetry-api": [
-				"libs/bridges/bridge-telemetry-api/src/index.ts"
-			],
 			"@hcabel/rest-api-utils": [
 				"./libs/rest-api-utils/src/index.ts"
 			],
 			"@hcabel/types/CachingApi": [
 				"libs/types/types-caching-api/src/index.ts"
-			],
-			"@hcabel/types/TelemetryApi": [
-				"libs/types/types-telemetry-api/src/index.ts"
 			]
 		},
 		"noImplicitAny": true,
