@@ -1,7 +1,7 @@
 {
   "name": "hugomeet",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/hugomeet/src",
+  "sourceRoot": "apps/hugomeet",
   "projectType": "application",
   "tags": [],
   "implicitDependencies": [
@@ -9,56 +9,30 @@
   ],
   "targets": {
     "build": {
-      "executor": "@nx/vite:build",
+      "executor": "@nx/next:build",
       "outputs": [
         "{options.outputPath}"
       ],
-      "defaultConfiguration": "production",
+      "nextConfig": "apps/hugomeet/next.config.js",
       "options": {
-        "outputPath": "dist/apps/hugomeet",
-        "configFile": "apps/hugomeet/vite.config.mts",
-        "tsConfig": "apps/hugomeet/tsconfig.app.json",
-        "skipTypeCheck": true
-      },
-      "configurations": {
-        "development": {
-          "mode": "development"
-        },
-        "production": {
-          "mode": "production"
-        }
+        "root": "apps/hugomeet",
+        "outputPath": "dist/apps/hugomeet"
       }
     },
     "serve": {
-      "executor": "@nx/vite:dev-server",
+      "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "hugomeet:build"
+        "buildTarget": "hugomeet:build",
+        "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "hugomeet:build:development"
+          "dev": true
         },
         "production": {
-          "buildTarget": "hugomeet:build:production"
-        }
-      }
-    },
-    "preview": {
-      "dependsOn": [
-        "build"
-      ],
-      "executor": "@nx/vite:preview-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "hugomeet:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "hugomeet:build:development"
-        },
-        "production": {
-          "buildTarget": "hugomeet:build:production"
+          "buildTarget": "hugomeet:build",
+          "dev": false
         }
       }
     },
@@ -70,7 +44,7 @@
       ],
       "options": {
         "commands": [
-          "pm2 start --name HugoMeet apps/hugomeet/server.js -- 3000"
+          "pm2 start --name HugoMeet next -- start -p 3000"
         ]
       }
     },
@@ -78,9 +52,9 @@
       "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
-          "apps/hugomeet/src/**/*.{js,jsx,ts,tsx}"
-        ],
-        "eslintConfig": ".eslintrc.json"
+          "apps/hugomeet/app/**/*.{ts,tsx,js,jsx}",
+          "apps/hugomeet/src/**/*.{ts,tsx,js,jsx}"
+        ]
       },
       "defaultConfiguration": "test",
       "configurations": {

@@ -9,7 +9,7 @@ const appName = __dirname.slice(__dirname.indexOf("/apps/") + 6);
 const distPath = __dirname.replace("/apps/", "/dist/apps/");
 
 // Allow cors from the hugocabel.com domain and all his subdomains
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header(
 		"Access-Control-Allow-Headers",
@@ -21,10 +21,10 @@ app.use(function (req, res, next) {
 app.use(express.static(__dirname));
 app.use(express.static(distPath));
 
-app.get("/*", function (req, res) {
+app.get("/*", function(req, res) {
 	res.sendFile(path.join(distPath, "index.html"));
 });
 
-server.listen(port, function () {
+server.listen(port, function() {
 	console.log(`${appName} is running on :${port}`);
 });

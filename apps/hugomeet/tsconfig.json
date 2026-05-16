@@ -1,22 +1,38 @@
 {
-	"extends": "../../tsconfig.base.json",
-	"compilerOptions": {
-		"jsx": "react-jsx",
-		"allowJs": true,
-		"esModuleInterop": true,
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "allowJs": true,
+    "esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true,
-		"strict": true,
-		"noImplicitOverride": true,
-		"noPropertyAccessFromIndexSignature": true,
-		"noImplicitReturns": true,
-		"noFallthroughCasesInSwitch": true
-	},
-	"files": [],
-	"include": [],
-	"references": [
-		{
-			"path": "./tsconfig.app.json"
-		}
-	]
+		"strict": false,
+		"noImplicitAny": false,
+		"noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "types": [
+      "node"
+    ],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "../../dist/apps/hugomeet/.next/types/**/*.ts",
+    "../../dist/dist/apps/hugomeet/.next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "next.config.js"
+  ]
 }
