@@ -1,6 +1,6 @@
 function generateRoomID(length) {
 	let result = "";
-	let characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+	const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
 
 	for (let i = 0; i < length; i++) {
 		if (i !== 0 && i % 3 === 0 && i + 1 < length) {

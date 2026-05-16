@@ -9,60 +9,56 @@
   ],
   "targets": {
     "build": {
-      "executor": "@nx/web:webpack",
+      "executor": "@nx/vite:build",
       "outputs": [
         "{options.outputPath}"
       ],
       "defaultConfiguration": "production",
       "options": {
-        "compiler": "babel",
         "outputPath": "dist/apps/hugomeet",
-        "index": "apps/hugomeet/src/public/index.html",
-        "baseHref": "/",
-        "main": "apps/hugomeet/src/index.js",
+        "configFile": "apps/hugomeet/vite.config.mts",
         "tsConfig": "apps/hugomeet/tsconfig.app.json",
-        "assets": [
-          "apps/hugomeet/src/public/favicon.ico",
-          "apps/hugomeet/src/public"
-        ],
-        "scripts": [],
-        "webpackConfig": "@nx/react/plugins/webpack"
+        "skipTypeCheck": true
       },
       "configurations": {
         "development": {
-          "extractLicenses": false,
-          "optimization": false,
-          "sourceMap": true,
-          "vendorChunk": true
+          "mode": "development"
         },
         "production": {
-          "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false
+          "mode": "production"
         }
       }
     },
     "serve": {
-      "executor": "@nx/web:dev-server",
+      "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "hugomeet:build",
-        "port": 3000
+        "buildTarget": "hugomeet:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "hugomeet:build:development",
-          "hmr": true
+          "buildTarget": "hugomeet:build:development"
         },
         "production": {
-          "buildTarget": "hugomeet:build:production",
-          "hmr": false,
-          "watch": false,
-          "liveReload": false,
-          "open": false
+          "buildTarget": "hugomeet:build:production"
+        }
+      }
+    },
+    "preview": {
+      "dependsOn": [
+        "build"
+      ],
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "hugomeet:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "hugomeet:build:development"
+        },
+        "production": {
+          "buildTarget": "hugomeet:build:production"
         }
       }
     },
@@ -82,7 +78,7 @@
       "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
-          "apps/hugomeet/src/**/*"
+          "apps/hugomeet/src/**/*.{js,jsx,ts,tsx}"
         ],
         "eslintConfig": ".eslintrc.json"
       },

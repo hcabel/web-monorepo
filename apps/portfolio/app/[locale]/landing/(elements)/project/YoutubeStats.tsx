@@ -2,10 +2,10 @@
 
 // External project
 import { Types as ProjectApiTypes } from "@hcabel/bridges/CachingApi";
+import { YoutubeIcon } from "Components/Icons";
 
 // Design
 import Style from "./Stats.module.scss";
-import YoutubeIcon from "Images/YoutubeIcon.svg";
 
 // Components
 import StatField from "./StatField";

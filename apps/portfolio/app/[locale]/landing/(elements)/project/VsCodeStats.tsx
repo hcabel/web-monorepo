@@ -2,10 +2,10 @@
 
 // External project
 import { Types as ProjectApiTypes } from "@hcabel/bridges/CachingApi";
+import { VsCodeIcon } from "Components/Icons";
 
 // Design
 import Style from "./Stats.module.scss";
-import VsCodeIcon from "Images/VsCodeIcon.svg";
 
 // Components
 import StatField from "./StatField";

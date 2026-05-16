@@ -217,87 +217,87 @@ export default function PreRoomLayer(props) {
 					{
 						(() => {
 							switch (_State) {
-								case "Connecting":
-									return (
-										<div className="PRP-B-C-Connecting">
-											<div className="PRP-B-C-C-Title">
+							case "Connecting":
+								return (
+									<div className="PRP-B-C-Connecting">
+										<div className="PRP-B-C-C-Title">
 												Connecting...
-											</div>
-											<div className="PRP-B-C-C-LoadingAnimation">
-												<div></div>
-												<div></div>
-												<div></div>
-												<div></div>
-											</div>
 										</div>
-									);
-								case "Form":
-									return (
-										<div className="PRP-B-C-Form">
-											<div className="PRP-B-C-F-Title">
+										<div className="PRP-B-C-C-LoadingAnimation">
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+									</div>
+								);
+							case "Form":
+								return (
+									<div className="PRP-B-C-Form">
+										<div className="PRP-B-C-F-Title">
 												Ready to join?
-											</div>
-											<input
-												className="PRP-B-C-F-Name"
-												name="Name"
-												placeholder="Name"
-												value={_Name}
-												onChange={(e) =>
-													set_Name(
-														e.target.value.length >=
+										</div>
+										<input
+											className="PRP-B-C-F-Name"
+											name="Name"
+											placeholder="Name"
+											value={_Name}
+											onChange={(e) =>
+												set_Name(
+													e.target.value.length >=
 															30
-															? _Name
-															: e.target.value
-													)
-												}
-											/>
-											<div
-												className="PRP-B-C-F-SubmitButtons"
-												onClick={participate}
-											>
-												<div className="PRP-B-C-F-SB-Participate">
-													<span className="PRP-B-C-F-SB-P-Value">
+														? _Name
+														: e.target.value
+												)
+											}
+										/>
+										<div
+											className="PRP-B-C-F-SubmitButtons"
+											onClick={participate}
+										>
+											<div className="PRP-B-C-F-SB-Participate">
+												<span className="PRP-B-C-F-SB-P-Value">
 														Join
-													</span>
-												</div>
+												</span>
 											</div>
 										</div>
-									);
-								case "Pending":
-									return (
-										<div className="PRP-B-C-Form">
-											<div className="PRP-B-C-F-Title">
+									</div>
+								);
+							case "Pending":
+								return (
+									<div className="PRP-B-C-Form">
+										<div className="PRP-B-C-F-Title">
 												Waiting for approval...
-											</div>
-											<div className="PRP-B-C-C-LoadingAnimation">
-												<div></div>
-												<div></div>
-												<div></div>
-												<div></div>
-											</div>
 										</div>
-									);
-								default:
-									return (
-										<div className="PRP-B-C-Form">
-											<div
-												className="PRP-B-C-F-Title"
-												style={{ color: "red" }}
-											>
-												{_State}
-											</div>
-											<div
-												className="PRP-B-C-F-SubmitButtons"
-												onClick={participate}
-											>
-												<div className="PRP-B-C-F-SB-Participate">
-													<span className="PRP-B-C-F-SB-P-Value">
+										<div className="PRP-B-C-C-LoadingAnimation">
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+									</div>
+								);
+							default:
+								return (
+									<div className="PRP-B-C-Form">
+										<div
+											className="PRP-B-C-F-Title"
+											style={{ color: "red" }}
+										>
+											{_State}
+										</div>
+										<div
+											className="PRP-B-C-F-SubmitButtons"
+											onClick={participate}
+										>
+											<div className="PRP-B-C-F-SB-Participate">
+												<span className="PRP-B-C-F-SB-P-Value">
 														retry
-													</span>
-												</div>
+												</span>
 											</div>
 										</div>
-									);
+									</div>
+								);
 							}
 						})() // This create and called the function
 					}

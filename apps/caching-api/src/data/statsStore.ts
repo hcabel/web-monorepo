@@ -5,7 +5,7 @@ import { IStats } from '@hcabel/types/CachingApi';
 
 export type IAllStats = Record<string, IStats>;
 
-const STATS_FILE_PATH = path.join(__dirname, '../../data/stats.json');
+const STATS_FILE_PATH = process.env.STATS_FILE_PATH || path.join(__dirname, 'stats.json');
 
 export function loadStats(): IAllStats {
 	try {
