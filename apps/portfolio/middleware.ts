@@ -44,7 +44,7 @@ export function middleware(request: NextRequest) {
 			// If the language is supported we redirect to the url with the language
 			const headerLocale = headerLocales[i].split("-")[0].toLowerCase();
 			if (LOCALES.includes(headerLocale)) {
-				url.pathname = `/${headerLocale}${url.pathname}${url.search}${url.hash}`;
+				url.pathname = `/${headerLocale}${url.pathname}`;
 				return NextResponse.redirect(url);
 			}
 		}
