@@ -13,7 +13,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 
 import Utils from "../../../../utils/utils";
 import type { Invitation, Peer, PeerConnectionEntry, RTCSignalMessage } from "../../../../types/hugomeet";
@@ -40,7 +40,7 @@ export default function RoomLayer(props: RoomLayerProps) {
 	const [_Peers, set_Peers] = useState<Peer[]>([]);
 	const [_PendingInvitation, set_PendingInvitation] = useState<Invitation[]>([]);
 
-	const router = useRouter();
+	const navigate = useNavigate();
 	const roomId = props.roomId;
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -416,7 +416,7 @@ export default function RoomLayer(props: RoomLayerProps) {
 			PeersConnection.clear();
 			window.SignalingSocket.close();
 		}
-		router.push("/");
+		navigate("/");
 	}
 
 	function toggleAudio() {
@@ -543,7 +543,7 @@ export default function RoomLayer(props: RoomLayerProps) {
 			) {
 				new Notification("Hugo Meet - Joining request", {
 					body: `${parsedMessage.name} ask you for joining the room`,
-					icon: NotificationIcon.src,
+					icon: NotificationIcon,
 					requireInteraction: true,
 					silent: false,
 				});
@@ -747,7 +747,7 @@ export default function RoomLayer(props: RoomLayerProps) {
 						<img
 							className="RL-TB-C-B-CBL-Img"
 							alt="Leave the call"
-							src={HangUpIcon.src}
+							src={HangUpIcon}
 						/>
 					</div>
 				</div>

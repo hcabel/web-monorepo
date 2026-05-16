@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useLocation } from "react-router-dom";
 
 import Utils from "../utils/utils";
 
 export default function RouteLifecycleHandler() {
-	const pathname = usePathname();
+	const location = useLocation();
 
 	useEffect(() => {
-		if (!pathname.startsWith("/room/")) {
+		if (!location.pathname.startsWith("/room/")) {
 			if (window.SignalingSocket) {
 				window.SignalingSocket.onopen = undefined;
 				window.SignalingSocket.onmessage = undefined;
@@ -29,7 +29,7 @@ export default function RouteLifecycleHandler() {
 				window.localStream
 			);
 		}
-	}, [pathname]);
+	}, [location.pathname]);
 
 	return null;
 }

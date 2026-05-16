@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ChangeEvent } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 
 import Header from "../Header/Header";
 
@@ -28,14 +28,14 @@ const presentationText = [
 ];
 
 export default function LandingPage() {
-	const router = useRouter();
+	const navigate = useNavigate();
 	const [presentationIndex, setPresentationIndex] = useState(0);
 	const [value, setValue] = useState("");
 	const [focused, setFocused] = useState(false);
 
 	function createNewRoom() {
 		const newRoomId = Utils.idGenerator.generateRoomID(9);
-		router.push(`/room/${newRoomId}`);
+		navigate(`/room/${newRoomId}`);
 	}
 
 	function joinRoom(roomId: string) {
@@ -43,7 +43,7 @@ export default function LandingPage() {
 			console.warn("RoomID is not valid !");
 			return;
 		}
-		router.push(`/room/${roomId}`);
+		navigate(`/room/${roomId}`);
 	}
 
 	function updateInputValue(e: ChangeEvent<HTMLInputElement>) {
@@ -141,7 +141,7 @@ export default function LandingPage() {
 						</button>
 						<div className="LP-B-IL-C-Content">
 							<div className="LP-B-IL-C-C-TextImage">
-								<img width="100%" height="100%" alt="presentation images" src={presentationPhotos[presentationIndex].src}></img>
+								<img width="100%" height="100%" alt="presentation images" src={presentationPhotos[presentationIndex]}></img>
 								<div className="LP-B-IL-C-C-TI-text">
 									<div className="LP-B-IL-C-C-TI-T-Title">{presentationTitle[presentationIndex]}</div>
 									<div className="LP-B-IL-C-C-TI-T-Text">{presentationText[presentationIndex]}</div>
