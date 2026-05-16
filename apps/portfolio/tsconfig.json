@@ -12,7 +12,8 @@
     "isolatedModules": true,
     "incremental": true,
     "types": [
-      "node"
+      "node",
+      "vite/client"
     ],
     "paths": {
       // External libs paths
@@ -39,25 +40,18 @@
         "apps/portfolio/utils/*"
       ]
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": []
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    "next-env.d.ts",
-    "**/*.glsl",
-    ".next/types/**/*.ts",
-    "../../dist/apps/portfolio/.next/types/**/*.ts",
-    "../../dist/dist/apps/portfolio/.next/types/**/*.ts"
+    "**/*.glsl"
   ],
   "exclude": [
     "node_modules",
-    "next.config.js"
+    "next.config.js",
+    "next-env.d.ts"
   ]
 }

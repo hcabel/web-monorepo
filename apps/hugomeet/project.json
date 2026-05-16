@@ -9,30 +9,64 @@
   ],
   "targets": {
     "build": {
-      "executor": "@nx/next:build",
+      "executor": "@nx/vite:build",
       "outputs": [
         "{options.outputPath}"
       ],
-      "nextConfig": "apps/hugomeet/next.config.js",
       "options": {
-        "root": "apps/hugomeet",
-        "outputPath": "dist/apps/hugomeet"
-      }
-    },
-    "serve": {
-      "executor": "@nx/next:server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "hugomeet:build",
-        "dev": true
+        "outputPath": "dist/apps/hugomeet",
+        "configFile": "apps/hugomeet/vite.config.mts"
       },
       "configurations": {
         "development": {
-          "dev": true
+          "mode": "development"
         },
         "production": {
-          "buildTarget": "hugomeet:build",
-          "dev": false
+          "mode": "production"
+        }
+      }
+    },
+    "dev": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "hugomeet:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "hugomeet:build:development"
+        },
+        "production": {
+          "buildTarget": "hugomeet:build:production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "hugomeet:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "hugomeet:build:development"
+        },
+        "production": {
+          "buildTarget": "hugomeet:build:production"
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "options": {
+        "buildTarget": "hugomeet:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "hugomeet:build:development"
+        },
+        "production": {
+          "buildTarget": "hugomeet:build:production"
         }
       }
     },
@@ -44,7 +78,7 @@
       ],
       "options": {
         "commands": [
-          "pm2 start --name HugoMeet next -- start -p 3000"
+          "pm2 start --name HugoMeet node -- apps/hugomeet/server.js 3000"
         ]
       }
     },

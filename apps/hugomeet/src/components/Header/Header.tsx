@@ -1,18 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import HugoMeetLogo from "./assets/HugoMeetLogo.png";
 
 export default function Header() {
 	const [dateTime, setDateTime] = useState(new Date());
-	const router = useRouter();
-	const pathname = usePathname();
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	function goToTheLandingPage() {
-		if (pathname !== "/") {
-			router.push("/");
+		if (location.pathname !== "/") {
+			navigate("/");
 		}
 	}
 
@@ -53,7 +53,7 @@ export default function Header() {
 	return (
 		<header className="Header">
 			<div className="H-Logo" onClick={goToTheLandingPage}>
-				<img className="H-L-Logo" src={HugoMeetLogo.src} alt="HugoMeet logo" />
+				<img className="H-L-Logo" src={HugoMeetLogo} alt="HugoMeet logo" />
 				<span className="H-L-Hugo">Hugo</span>
 				<span className="H-L-Meet">Meet</span>
 			</div>

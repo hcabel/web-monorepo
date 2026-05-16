@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { usePathname, useRouter } from "next/navigation";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import config from "../../../../config";
 import Header from "../../../Header/Header";
@@ -30,8 +30,8 @@ export default function PreRoomLayer(props: PreRoomLayerProps) {
 	);
 	const [state, setState] = useState<PreRoomState>("Form");
 
-	const router = useRouter();
-	const pathname = usePathname();
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	function WSonMessage(msg: MessageEvent<string>) {
 		let parsedMessage: ConnectionCallbackMessage | JoinRequestCallbackMessage | { type: string };
@@ -66,8 +66,8 @@ export default function PreRoomLayer(props: PreRoomLayerProps) {
 			setState("Connection Error");
 		} else {
 			console.log(`WS close: ${event.code}${event.reason && ` - ${event.reason}`}`);
-			if (pathname !== "/") {
-				router.push("/");
+			if (location.pathname !== "/") {
+				navigate("/");
 			}
 		}
 	}

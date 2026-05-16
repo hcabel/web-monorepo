@@ -11,37 +11,64 @@
   ],
   "targets": {
     "build": {
-      "executor": "@nx/next:build",
+      "executor": "@nx/vite:build",
       "outputs": [
         "{options.outputPath}"
       ],
-      "nextConfig": "apps/portfolio/next.config.js",
       "options": {
-        "root": "apps/portfolio",
-        "outputPath": "dist/apps/portfolio"
-      }
-    },
-    "serve-DEV": {
-      "executor": "@nx/next:server",
-      "options": {
-        "buildTarget": "portfolio:build",
-        "dev": true
+        "outputPath": "dist/apps/portfolio",
+        "configFile": "apps/portfolio/vite.config.mts"
       },
       "configurations": {
-        "OnLocalNetwork": {
-          "hostname": "10.0.0.78"
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
         }
       }
     },
-    "serve-PROD": {
-      "executor": "@nx/next:server",
+    "dev": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "portfolio:build",
-        "dev": false
+        "buildTarget": "portfolio:build"
       },
       "configurations": {
-        "OnLocalNetwork": {
-          "hostname": "10.0.0.78"
+        "development": {
+          "buildTarget": "portfolio:build:development"
+        },
+        "production": {
+          "buildTarget": "portfolio:build:production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "portfolio:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "portfolio:build:development"
+        },
+        "production": {
+          "buildTarget": "portfolio:build:production"
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "options": {
+        "buildTarget": "portfolio:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "portfolio:build:development"
+        },
+        "production": {
+          "buildTarget": "portfolio:build:production"
         }
       }
     },
@@ -52,7 +79,7 @@
       ],
       "options": {
         "commands": [
-          "pm2 start --name Portfolio next -- start -p 4200"
+          "pm2 start --name Portfolio pnpm -- nx preview portfolio --configuration production"
         ]
       }
     },

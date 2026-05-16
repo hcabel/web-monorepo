@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 
 import PreRoomLayer from "./layers/preRoom/PreRoomLayer";
 import RoomLayer from "./layers/roomLayer/RoomLayer";
@@ -20,7 +20,7 @@ export default function RoomPage({ roomId }: RoomPageProps) {
 	const [selfId, setSelfId] = useState("");
 	const [rtcOptions, setRtcOptions] = useState<RTCConfiguration>({});
 
-	const router = useRouter();
+	const navigate = useNavigate();
 
 	function onConnectionCallback(msg: ConnectionCallbackMessage) {
 		setSelfId(msg.selfId);
@@ -38,7 +38,7 @@ export default function RoomPage({ roomId }: RoomPageProps) {
 
 		if (!navigator.mediaDevices) {
 			alert("This site is untrusted we cant access to the camera/or and microphone !");
-			router.push("/");
+			navigate("/");
 			return undefined;
 		}
 
@@ -106,9 +106,9 @@ export default function RoomPage({ roomId }: RoomPageProps) {
 
 	useEffect(() => {
 		if (!Utils.idGenerator.isRoomIDValid(roomId)) {
-			router.push("/");
+			navigate("/");
 		}
-	}, [roomId, router]);
+	}, [roomId, navigate]);
 
 	useEffect(() => {
 		if (window.clockTimeout !== undefined) {
