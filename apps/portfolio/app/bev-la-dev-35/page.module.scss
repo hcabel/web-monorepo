@@ -1,0 +1,83 @@
+.page {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: radial-gradient(circle at top, #2c124d 0%, #14071f 45%, #050208 100%);
+	padding: 1.5rem;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 1rem;
+	max-width: 900px;
+}
+
+.birthday {
+	margin: 0;
+	font-size: clamp(2rem, 5vw, 4rem);
+	font-weight: 900;
+	letter-spacing: 0.08em;
+	color: #ff8cf5;
+	text-shadow: 0 0 10px rgba(255, 140, 245, 0.9), 0 0 26px rgba(217, 89, 255, 0.8);
+	animation: neonPulse 1.8s ease-in-out infinite alternate;
+}
+
+.title {
+	margin: 0;
+	font-size: clamp(2.5rem, 7vw, 6rem);
+	font-weight: 900;
+	letter-spacing: 0.14em;
+	color: #7df9ff;
+	text-shadow: 0 0 12px rgba(125, 249, 255, 0.9), 0 0 32px rgba(88, 188, 255, 0.8);
+	animation: neonPulse 2.2s ease-in-out infinite alternate;
+}
+
+.consoleLine,
+.compilation {
+	margin: 0;
+	padding: 0.6rem 0.9rem;
+	border-radius: 8px;
+	font-family: "Fira Code", "Consolas", monospace;
+	background: rgba(0, 0, 0, 0.4);
+	color: #7aff95;
+	box-shadow: inset 0 0 0 1px rgba(122, 255, 149, 0.25);
+}
+
+.compilation {
+	color: #d8ff63;
+	box-shadow: inset 0 0 0 1px rgba(216, 255, 99, 0.35);
+}
+
+.beat {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: radial-gradient(circle, #a0f 0%, #5bf 55%, transparent 75%);
+	filter: blur(0.5px);
+	animation: technoBeat 1.2s ease-in-out infinite;
+}
+
+@keyframes technoBeat {
+	0%,
+	100% {
+		transform: scale(0.9);
+		opacity: 0.55;
+	}
+	50% {
+		transform: scale(1.15);
+		opacity: 1;
+	}
+}
+
+@keyframes neonPulse {
+	from {
+		filter: brightness(0.88);
+	}
+	to {
+		filter: brightness(1.1);
+	}
+}
