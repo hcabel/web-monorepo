@@ -8,7 +8,7 @@ class Languages(Enum):
 class i18n:
 	translations: dict[Languages, str] = {}
 
-	def __init__(self, translations: dict[Languages, str] | str ) -> None:
+	def __init__(self, translations: dict[Languages, str] or str ) -> None:
 		# if translations is a string, then it's the english translation
 		if (isinstance(translations, str)):
 			self.translations = { Languages.EN: translations }

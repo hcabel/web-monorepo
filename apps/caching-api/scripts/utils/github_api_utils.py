@@ -126,7 +126,7 @@ class GithubResponse:
 	archived: bool
 	disabled: bool
 	open_issues_count: int
-	license: License | None
+	license: License or None
 	allow_forking: bool
 	is_template: bool
 	web_commit_signoff_required: bool

@@ -13,7 +13,7 @@ class Stat:
 	name: i18n
 	platform: str = ""
 
-	def __init__(self, name: i18n | str) -> None:
+	def __init__(self, name: i18n or str) -> None:
 		if (isinstance(name, str)):
 			self.name = i18n(name)
 		else:
@@ -36,7 +36,7 @@ class GithubStats(Stat):
 	author: str = ""
 	repoName: str = ""
 
-	def __init__(self, name: i18n | str, author: str, repoName: str) -> None:
+	def __init__(self, name: i18n or str, author: str, repoName: str) -> None:
 		super().__init__(name)
 		self.platform = "github"
 		self.author = author

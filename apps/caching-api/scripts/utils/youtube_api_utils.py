@@ -304,7 +304,7 @@ def get_video_id_by_url(url):
 
 
 
-def get_youtube_video_data(video_url: str) -> YoutubeResponse | None:
+def get_youtube_video_data(video_url: str) -> YoutubeResponse or None:
 	api_service = youtube_authenticate_apikey()
 	if (api_service):
 		video_id = get_video_id_by_url(video_url)
