@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ILocalePageProps } from "../layout";
 
 import Style from "./page.module.scss";
-import ArrowIcon from "Images/arrow.svg";
+import { ArrowIcon } from "Components/Icons";
 import { I18nDictText } from "Components/i18nText";
 import IntroExperienceCanvas from "./(elements)/IntroExperienceCanvas";
 

@@ -2,6 +2,7 @@
   "name": "hcabel-monorepo",
   "version": "0.0.0",
   "license": "MIT",
+  "packageManager": "pnpm@9.15.9",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "start": "nx serve",
@@ -16,11 +17,9 @@
     "core-js": "^3.42.0",
     "cors": "^2.8.5",
     "express": "^4.21.2",
-    "glslify-loader": "^2.0.0",
     "helmet": "^6.2.0",
     "next": "14.2.0",
     "pnpm": "^9.0.0",
-    "raw-loader": "^4.0.2",
     "react": "18.3.1",
     "react-cookie": "^4.1.1",
     "react-dom": "18.3.1",
@@ -28,7 +27,6 @@
     "sharp": "^0.31.3",
     "stats.js": "^0.17.0",
     "tslib": "^2.8.1",
-    "webpack": "^5.99.9",
     "ws": "^8.18.2"
   },
   "devDependencies": {
@@ -38,10 +36,9 @@
     "@nx/js": "22.6.3",
     "@nx/node": "22.6.3",
     "@nx/react": "22.6.3",
-    "@nx/web": "22.6.3",
-    "@nx/webpack": "22.6.3",
+    "@nx/vite": "22.6.3",
     "@nx/workspace": "22.6.3",
-    "@svgr/webpack": "^6.5.1",
+    "@vitejs/plugin-react": "^6.0.2",
     "@types/body-parser": "^1.19.5",
     "@types/cors": "^2.8.18",
     "@types/express": "4.17.13",
@@ -65,6 +62,7 @@
     "sass": "1.54.5",
     "three": "^0.144.0",
     "ts-node": "10.9.1",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "vite": "^8.0.13"
   }
 }

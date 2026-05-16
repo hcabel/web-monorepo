@@ -55,6 +55,7 @@
   "generators": {
     "@nx/react": {
       "application": {
+        "bundler": "vite",
         "style": "css",
         "linter": "eslint",
         "babel": true

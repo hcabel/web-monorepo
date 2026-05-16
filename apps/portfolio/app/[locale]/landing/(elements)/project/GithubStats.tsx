@@ -2,12 +2,10 @@
 
 // External project
 import { Types as ProjectApiTypes } from "@hcabel/bridges/CachingApi";
+import { ForkIcon, GithubIcon, StarIcon } from "Components/Icons";
 
 // Design
 import Style from "./Stats.module.scss";
-import GithubIcon from "Images/github/GithubIcon.svg";
-import ForkIcon from "Images/github/ForkIcon.svg";
-import StarIcon from "Images/github/StarIcon.svg";
 
 // Components
 import StatField from "./StatField";

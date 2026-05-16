@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import Style from "./LocaleSelector.module.scss";
 
-import TranslateIcon from "Images/TranslateIcon.svg";
+import { TranslateIcon } from "Components/Icons";
 import Selector from "Components/Selector/Selector";
 import { usePathname } from "next/navigation";
 import { useLocale } from "App/[locale]/LocaleContext";

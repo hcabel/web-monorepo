@@ -6,7 +6,7 @@ import { get_project_stats } from "./projects.routes";
 
 const RouteTree: IRoutingTreeBranch = {
 	__self__: {
-		get: useRoute(async () => {
+		get: useRoute(async() => {
 			return { status: 200, json: { message: "CachingApi is running." } };
 		}),
 	},

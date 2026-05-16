@@ -8,18 +8,22 @@
   ],
   "targets": {
     "build": {
-      "executor": "@nx/webpack:webpack",
+      "executor": "@nx/vite:build",
       "outputs": [
         "{options.outputPath}"
       ],
       "options": {
         "outputPath": "dist/apps/caching-api",
-        "webpackConfig": "apps/caching-api/webpack.config.js"
+        "configFile": "apps/caching-api/vite.config.mts",
+        "outputFileName": "server.js",
+        "tsConfig": "apps/caching-api/tsconfig.json"
       },
       "configurations": {
+        "development": {
+          "mode": "development"
+        },
         "production": {
-          "optimization": true,
-          "extractLicenses": true
+          "mode": "production"
         }
       }
     },
@@ -29,6 +33,9 @@
         "buildTarget": "caching-api:build"
       },
       "configurations": {
+        "development": {
+          "buildTarget": "caching-api:build:development"
+        },
         "production": {
           "buildTarget": "caching-api:build:production",
           "inspect": false,
