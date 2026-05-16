@@ -4,57 +4,43 @@
 	"projectType": "application",
 	"targets": {
 		"build": {
-			"executor": "@nrwl/web:webpack",
+			"executor": "@nrwl/vite:build",
 			"outputs": ["{options.outputPath}"],
 			"defaultConfiguration": "production",
 			"options": {
-				"compiler": "babel",
 				"outputPath": "dist/apps/frontend/hugomeet",
-				"index": "apps/frontend/hugomeet/src/public/index.html",
-				"baseHref": "/",
-				"main": "apps/frontend/hugomeet/src/index.js",
-				"tsConfig": "apps/frontend/hugomeet/tsconfig.app.json",
-				"assets": [
-					"apps/frontend/hugomeet/src/public/favicon.ico",
-					"apps/frontend/hugomeet/src/public"
-				],
-				"scripts": [],
-				"webpackConfig": "@nrwl/react/plugins/webpack"
+				"configFile": "apps/frontend/hugomeet/vite.config.js"
 			},
 			"configurations": {
 				"development": {
-					"extractLicenses": false,
-					"optimization": false,
-					"sourceMap": true,
-					"vendorChunk": true
+					"mode": "development",
+					"sourcemap": true,
+					"minify": false
 				},
 				"production": {
-					"optimization": true,
-					"outputHashing": "all",
-					"sourceMap": false,
-					"namedChunks": false,
-					"extractLicenses": true,
-					"vendorChunk": false
+					"mode": "production",
+					"sourcemap": false
 				}
 			}
 		},
 		"serve": {
-			"executor": "@nrwl/web:dev-server",
+			"executor": "@nrwl/vite:dev-server",
 			"defaultConfiguration": "development",
 			"options": {
 				"buildTarget": "frontend-hugomeet:build",
+				"host": "0.0.0.0",
 				"port": 3000
 			},
 			"configurations": {
 				"development": {
 					"buildTarget": "frontend-hugomeet:build:development",
+					"mode": "development",
 					"hmr": true
 				},
 				"production": {
 					"buildTarget": "frontend-hugomeet:build:production",
+					"mode": "production",
 					"hmr": false,
-					"watch": false,
-					"liveReload": false,
 					"open": false
 				}
 			}

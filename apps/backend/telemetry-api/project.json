@@ -5,35 +5,29 @@
 	"projectType": "application",
 	"targets": {
 		"build": {
-			"executor": "@nrwl/webpack:webpack",
+			"executor": "nx:run-commands",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"target": "node",
-				"compiler": "tsc",
 				"outputPath": "dist/apps/backend/telemetry-api",
-				"main": "apps/backend/telemetry-api/src/server.ts",
-				"tsConfig": "apps/backend/telemetry-api/tsconfig.app.json"
+				"command": "rm -rf dist/apps/backend/telemetry-api && tsc -p apps/backend/telemetry-api/tsconfig.app.json --outDir dist/apps/backend/telemetry-api"
 			},
 			"configurations": {
 				"production": {
-					"optimization": true,
-					"extractLicenses": true,
-					"inspect": false
+					"command": "rm -rf dist/apps/backend/telemetry-api && tsc -p apps/backend/telemetry-api/tsconfig.app.json --outDir dist/apps/backend/telemetry-api"
 				}
 			}
 		},
 		"serve": {
-			"executor": "@nrwl/js:node",
+			"executor": "nx:run-commands",
 			"options": {
-				"buildTarget": "backend-telemetry-api:build"
+				"command": "node -r ts-node/register apps/backend/telemetry-api/src/server.ts"
 			},
 			"configurations": {
 				"production": {
-					"buildTarget": "backend-telemetry-api:build:production",
-					"inspect": false,
-					"watch": false
+					"command": "node dist/apps/backend/telemetry-api/server.js"
 				}
-			}
+			},
+			"dependsOn": ["build"]
 		},
 		"lint": {
 			"executor": "@nrwl/linter:eslint",

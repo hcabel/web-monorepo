@@ -5,35 +5,29 @@
 	"projectType": "application",
 	"targets": {
 		"build": {
-			"executor": "@nrwl/webpack:webpack",
+			"executor": "nx:run-commands",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"target": "node",
-				"compiler": "tsc",
 				"outputPath": "dist/apps/backend/project-api",
-				"main": "apps/backend/project-api/src/server.ts",
-				"tsConfig": "apps/backend/project-api/tsconfig.json"
+				"command": "rm -rf dist/apps/backend/project-api && tsc -p apps/backend/project-api/tsconfig.json --outDir dist/apps/backend/project-api"
 			},
 			"configurations": {
 				"production": {
-					"optimization": true,
-					"extractLicenses": true,
-					"inspect": false
+					"command": "rm -rf dist/apps/backend/project-api && tsc -p apps/backend/project-api/tsconfig.json --outDir dist/apps/backend/project-api"
 				}
 			}
 		},
 		"serve": {
-			"executor": "@nrwl/js:node",
+			"executor": "nx:run-commands",
 			"options": {
-				"buildTarget": "backend-project-api:build"
+				"command": "node -r ts-node/register apps/backend/project-api/src/server.ts"
 			},
 			"configurations": {
 				"production": {
-					"buildTarget": "backend-project-api:build:production",
-					"inspect": false,
-					"watch": false
+					"command": "node dist/apps/backend/project-api/server.js"
 				}
-			}
+			},
+			"dependsOn": ["build"]
 		},
 		"lint": {
 			"executor": "@nrwl/linter:eslint",
