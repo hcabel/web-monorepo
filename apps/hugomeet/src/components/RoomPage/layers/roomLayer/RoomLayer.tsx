@@ -678,9 +678,8 @@ export default function RoomLayer(props: RoomLayerProps) {
 				</div>
 				<div className="RL-TB-Center">
 					<div
-						className={`RL-TB-C-Button-${
-							props.audio ? "On" : "Off"
-						} Center-Button-MicroStatus`}
+						className={`RL-TB-C-Button-${props.audio ? "On" : "Off"
+							} Center-Button-MicroStatus`}
 						onClick={toggleAudio}
 					>
 						{props.audio ? (
@@ -713,9 +712,8 @@ export default function RoomLayer(props: RoomLayerProps) {
 						)}
 					</div>
 					<div
-						className={`RL-TB-C-Button-${
-							props.video ? "On" : "Off"
-						} Center-Button-CameraStatus`}
+						className={`RL-TB-C-Button-${props.video ? "On" : "Off"
+							} Center-Button-CameraStatus`}
 						onClick={toggleVideo}
 					>
 						{props.video ? (

@@ -4,7 +4,7 @@ import { type ReactNode } from "react";
 import { CookiesProvider } from "react-cookie";
 
 interface ProvidersProps {
-children: ReactNode;
+	children: ReactNode;
 }
 
 export default function Providers({ children }: ProvidersProps) {

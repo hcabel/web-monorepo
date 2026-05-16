@@ -1,9 +1,9 @@
 import RoomPage from "../../../src/components/RoomPage/RoomPage";
 
 interface RoomRoutePageProps {
-params: {
-roomId: string;
-};
+	params: {
+		roomId: string;
+	};
 }
 
 export default function RoomRoutePage({ params }: RoomRoutePageProps) {

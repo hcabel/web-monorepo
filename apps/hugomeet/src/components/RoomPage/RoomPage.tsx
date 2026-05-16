@@ -10,7 +10,7 @@ import Utils from "../../utils/utils";
 import type { ConnectionCallbackMessage } from "../../types/hugomeet";
 
 interface RoomPageProps {
-roomId: string;
+	roomId: string;
 }
 
 export default function RoomPage({ roomId }: RoomPageProps) {

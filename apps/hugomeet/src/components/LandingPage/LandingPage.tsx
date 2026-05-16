@@ -65,8 +65,8 @@ export default function LandingPage() {
 				<div className="LP-B-TextAndButton">
 					<div className="LP-B-TAB-Text">HugoMeet, now available for everyone, for free.</div>
 					<div className="LP-B-TAB-Text2">
-Welcome to my video meeting platform. I made this to show my WebRTC skills. I hope
-you like it and maybe find it useful.
+						Welcome to my video meeting platform. I made this to show my WebRTC skills. I hope
+						you like it and maybe find it useful.
 					</div>
 					<div className="LP-B-TAB-Button">
 						<div className="LP-B-TAB-B-CreateNewRoom" onClick={createNewRoom}>
@@ -109,7 +109,7 @@ you like it and maybe find it useful.
 											: undefined
 									}
 								>
-Join
+									Join
 								</button>
 							)}
 						</div>
@@ -121,9 +121,9 @@ Join
 								className="LP-MI-S-Href"
 								href="https://www.youtube.com/channel/UCuKL6gBO82AEBAFc5lWJQFg"
 							>
-Learn more
+								Learn more
 							</a>{" "}
-about HugoMeet
+							about HugoMeet
 						</span>
 						<span className="LP-MI-Span">contact@hugocabel.com</span>
 					</div>
@@ -169,9 +169,9 @@ about HugoMeet
 								className="LP-MI-S-Href"
 								href="https://www.youtube.com/channel/UCuKL6gBO82AEBAFc5lWJQFg"
 							>
-Learn more
+								Learn more
 							</a>{" "}
-about HugoMeet
+							about HugoMeet
 						</span>
 						<span className="LP-MI-Span">contact@hugocabel.com</span>
 					</div>

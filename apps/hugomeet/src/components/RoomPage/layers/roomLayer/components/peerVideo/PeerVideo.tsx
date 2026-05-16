@@ -3,14 +3,14 @@
 import { useEffect, useRef } from "react";
 
 interface PeerVideoProps {
-id: string;
-index: number;
-name: string;
-audio?: boolean;
-video?: boolean;
-muted?: boolean;
-mirrored?: boolean;
-stream?: MediaStream;
+	id: string;
+	index: number;
+	name: string;
+	audio?: boolean;
+	video?: boolean;
+	muted?: boolean;
+	mirrored?: boolean;
+	stream?: MediaStream;
 }
 
 export default function PeerVideo(props: PeerVideoProps) {

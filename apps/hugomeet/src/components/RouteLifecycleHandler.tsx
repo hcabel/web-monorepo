@@ -17,7 +17,7 @@ export default function RouteLifecycleHandler() {
 				window.SignalingSocket.onclose = undefined;
 				if (
 					window.SignalingSocket.readyState === WebSocket.CONNECTING ||
-window.SignalingSocket.readyState === WebSocket.OPEN
+					window.SignalingSocket.readyState === WebSocket.OPEN
 				) {
 					window.SignalingSocket.close();
 				}

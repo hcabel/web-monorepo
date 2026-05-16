@@ -12,7 +12,7 @@ import Providers from "../src/components/Providers";
 import RouteLifecycleHandler from "../src/components/RouteLifecycleHandler";
 
 interface RootLayoutProps {
-children: ReactNode;
+	children: ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
