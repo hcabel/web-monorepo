@@ -5,6 +5,9 @@ import type { NextRequest } from "next/server";
 const PUBLIC_FILE = /\.(.*)$/;
 const LOCALES = ["en", "fr"];
 
+const hiddenPages = [
+	"/bev-36-birthday",
+];
 const nonI18nPaths = [
 	"/404",
 	"/500",
@@ -12,6 +15,7 @@ const nonI18nPaths = [
 	"/_next",
 	"/api",
 	"/redirects",
+	...hiddenPages,
 ];
 
 export function middleware(request: NextRequest) {
@@ -31,7 +35,11 @@ export function middleware(request: NextRequest) {
 
 		// Check if he specified a locale in the url or trying to access a nonI18nPath
 		const firstPath = url.pathname.split("/")[1];
-		if (LOCALES.includes(firstPath) || nonI18nPaths.includes(firstPath)) {
+		if (
+			LOCALES.includes(firstPath) ||
+			nonI18nPaths.includes(url.pathname) ||
+			nonI18nPaths.includes(`/${firstPath}`)
+		) {
 			return undefined;
 		}
 
