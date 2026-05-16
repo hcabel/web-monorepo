@@ -61,11 +61,6 @@ const nextConfig = {
 					"https://marketplace.visualstudio.com/items?itemName=HugoCabel.uvch",
 				permanent: true,
 			},
-			{
-				source: "/redirects/poster-bev",
-				destination: "/bev-la-dev-35",
-				permanent: false,
-			},
 		];
 	},
 	rewrites: async () => {

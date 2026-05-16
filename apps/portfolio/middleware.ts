@@ -5,6 +5,9 @@ import type { NextRequest } from "next/server";
 const PUBLIC_FILE = /\.(.*)$/;
 const LOCALES = ["en", "fr"];
 
+const hiddenPages = [
+	"/bev-36-birthday",
+];
 const nonI18nPaths = [
 	"/404",
 	"/500",
@@ -12,7 +15,7 @@ const nonI18nPaths = [
 	"/_next",
 	"/api",
 	"/redirects",
-	"/bev-la-dev-35",
+	...hiddenPages,
 ];
 
 export function middleware(request: NextRequest) {
