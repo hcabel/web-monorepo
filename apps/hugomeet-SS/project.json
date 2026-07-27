@@ -17,7 +17,7 @@
     "deploy": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "pm2 delete HugoMeet-SS || : && pm2 start --name HugoMeet-SS apps/hugomeet-SS/src/signallingServer.js"
+        "command": "pm2 startOrReload ecosystem.config.js --only HugoMeet-SS --update-env && pm2 save"
       }
     },
     "lint": {

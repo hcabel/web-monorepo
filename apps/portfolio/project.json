@@ -7,7 +7,8 @@
     "frontend"
   ],
   "implicitDependencies": [
-    "bridge-caching-api"
+    "bridge-caching-api",
+    "caching-api"
   ],
   "targets": {
     "build": {
@@ -48,11 +49,12 @@
     "deploy": {
       "executor": "nx:run-commands",
       "dependsOn": [
-        "build"
+        "build",
+        "^deploy"
       ],
       "options": {
         "commands": [
-          "pm2 start --name Portfolio next -- start -p 4200"
+          "pm2 startOrReload ecosystem.config.js --only Portfolio --update-env && pm2 save"
         ]
       }
     },

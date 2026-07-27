@@ -74,6 +74,7 @@ def main():
 
 	# Write atomically: write to a temp file then replace the original
 	stats_dir = os.path.dirname(STATS_FILE_PATH)
+	os.makedirs(stats_dir, exist_ok=True)
 	with tempfile.NamedTemporaryFile('w', dir=stats_dir, delete=False, suffix='.tmp', encoding='utf-8') as tmp:
 		json.dump(all_stats, tmp, indent=2, ensure_ascii=False)
 		tmp_path = tmp.name

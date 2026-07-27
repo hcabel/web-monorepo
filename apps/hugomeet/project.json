@@ -44,7 +44,7 @@
       ],
       "options": {
         "commands": [
-          "pm2 start --name HugoMeet next -- start -p 3000"
+          "pm2 startOrReload ecosystem.config.js --only HugoMeet --update-env && pm2 save"
         ]
       }
     },

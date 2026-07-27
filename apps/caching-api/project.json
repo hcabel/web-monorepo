@@ -43,6 +43,15 @@
         }
       }
     },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        "build"
+      ],
+      "options": {
+        "command": "pm2 startOrReload ecosystem.config.js --only Caching-api --update-env && pm2 save"
+      }
+    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {

@@ -58,5 +58,3 @@ __pycache__
 .claude/worktrees
 .claude/settings.local.json
 
-# Cache data files
-apps/project-api/data
